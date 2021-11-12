@@ -7,20 +7,45 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "generate-types": "source .env && npx openapi-typescript $SUPABASE_URL/rest/v1/?apikey=$SUPABASE_KEY --output types/supabase.ts"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "~1.15.0",
+    "@react-navigation/bottom-tabs": "^6.0.9",
+    "@react-navigation/elements": "^1.2.1",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/stack": "^6.0.11",
+    "@supabase/supabase-js": "^1.25.2",
+    "animal-avatar-generator": "^1.0.3",
+    "dotenv": "^10.0.0",
     "expo": "~43.0.0",
+    "expo-app-loading": "~1.2.1",
+    "expo-barcode-scanner": "~11.1.2",
+    "expo-font": "~10.0.3",
     "expo-status-bar": "~1.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.2",
-    "react-native-web": "0.17.1"
+    "react-native-elements": "^3.4.2",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-global-props": "^1.1.5",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "~3.8.0",
+    "react-native-url-polyfill": "^1.3.0",
+    "react-native-web": "0.17.1",
+    "react-qr-code": "^2.0.2",
+    "tailwind-rn": "^3.0.1",
+    "tailwindcss": "^2.2.19",
+    "zustand": "^3.6.3",
+    "react-native-svg": "12.1.1",
+    "expo-linear-gradient": "~10.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
+    "babel-plugin-module-resolver": "^4.1.0",
     "typescript": "~4.3.5"
   },
   "private": true
