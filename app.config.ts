@@ -5,7 +5,7 @@ export default {
     name: "flats",
     slug: "flats",
     owner: "farbigmedia",
-    version: "1.0.0",
+    version: "0.1.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
     splash: {
@@ -18,6 +18,7 @@ export default {
     },
     assetBundlePatterns: ["**/*"],
     ios: {
+      bundleIdentifier: "com.farbigmedia.flats",
       supportsTablet: true,
     },
     android: {
