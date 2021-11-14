@@ -27,7 +27,9 @@ const CardList = ({ title, images, animated, onPressImage, ...props }: any) => {
     <View style={tailwind(`my-2`)}>
       <View style={tailwind("px-4 flex-row justify-between items-end")}>
         {title && (
-          <Text style={tailwind("py-2 text-xl font-bold")}>{title}</Text>
+          <Text style={tailwind("py-2 text-3xl text-primary-800 font-bold")}>
+            {title}
+          </Text>
         )}
         <TouchableOpacity
           style={{ ...tailwind("flex-row"), transform: [{ translateY: 10 }] }}

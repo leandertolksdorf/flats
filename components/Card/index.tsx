@@ -23,7 +23,7 @@ const Card = ({
       <TouchableOpacity
         style={{
           borderWidth: 0.5,
-          ...tailwind("py-2 px-4 bg-primary-200 border-primary-300"),
+          ...tailwind("py-2 px-4 bg-white border-primary-300"),
         }}
         onPress={editable ? handleFocus : null}
         {...props}
