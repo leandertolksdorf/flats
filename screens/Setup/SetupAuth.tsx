@@ -1,5 +1,4 @@
 import { Button, Screen, Text } from "components";
-import FadeIn from "components/FadeIn";
 import Padding from "components/Padding";
 import {
   signInText,
@@ -9,9 +8,6 @@ import {
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
 import React from "react";
-import { Image, View } from "react-native";
-//@ts-ignore
-import loginImage from "../../assets/city.gif";
 
 const SetupAuth = ({ navigation }: { navigation: any }) => {
   return (
@@ -32,14 +28,6 @@ const SetupAuth = ({ navigation }: { navigation: any }) => {
         >
           {signUpText}
         </Button>
-        <FadeIn>
-          <View style={tailwind("items-center mt-5")}>
-            <Image
-              source={loginImage}
-              style={tailwind("w-80 h-72 rounded-xl")}
-            />
-          </View>
-        </FadeIn>
       </Padding>
     </Screen>
   );
