@@ -31,14 +31,7 @@ const AccountCard = () => {
   };
   return (
     <>
-      <CardList
-        title={accountCardHeadingText}
-        onPressImage={() => {
-          updateProfile({
-            avatar_seed: Math.random(),
-          });
-        }}
-      >
+      <CardList title={accountCardHeadingText}>
         <Card
           editable
           title={nameText}

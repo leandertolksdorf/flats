@@ -11,20 +11,28 @@ import { TouchableOpacity, View } from "react-native";
 import useStore from "store";
 
 const HomeHero = () => {
-  const [profile, flat, signOut, updateFlat] = useStore((state: any) => [
-    state.profile,
-    state.flat,
-    state.signOut,
-    state.updateFlat,
-  ]);
+  const [profile, updateProfile, flat, signOut, updateFlat] = useStore(
+    (state: any) => [
+      state.profile,
+      state.updateProfile,
+      state.flat,
+      state.signOut,
+      state.updateFlat,
+    ]
+  );
   return (
     <View style={tailwind("px-3 mb-4")}>
-      <View
+      <TouchableOpacity
         style={tailwind(
           "mb-2 p-3 bg-black bg-opacity-30 flex-row items-center rounded-xl justify-between"
         )}
+        onPress={() => {
+          updateProfile({
+            avatar_seed: Math.random(),
+          });
+        }}
       >
-        <View style={tailwind("")}>
+        <View>
           <Text style={tailwind("text-2xl font-bold text-white")}>
             {greetingHeadingWithNameText(profile?.first_name)}
           </Text>
@@ -35,7 +43,7 @@ const HomeHero = () => {
         <View style={tailwind("ml-2")}>
           <Avatar seed={profile?.avatar_seed || ""} size={16} round />
         </View>
-      </View>
+      </TouchableOpacity>
       {flat !== null && (
         <>
           <TouchableOpacity
