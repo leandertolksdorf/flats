@@ -49,15 +49,14 @@ export const BottomTabNavigatorScreenOptions: (props: {
   route: RouteProp<ParamListBase, string>;
 }) => BottomTabNavigationOptions = ({ route }) => ({
   headerShown: false,
-  tabBarActiveTintColor: getColor("pink-500"),
-  tabBarInactiveTintColor: getColor("white"),
-  tabBarLabelStyle: tailwind("text-sm"),
-  tabBarStyle: tailwind("py-2 h-16"),
+  tabBarActiveTintColor: getColor("pink-600"),
+  tabBarInactiveTintColor: getColor("primary-800"),
+  tabBarStyle: tailwind("border-0"),
   tabBarBackground: () => (
     <LinearGradient
       style={tailwind("w-full h-full")}
-      colors={[getColor("primary-900"), getColor("primary-500")]}
-      start={[0, 1]}
+      colors={[getColor("primary-100"), getColor("primary-300")]}
+      start={[0, 0]}
       end={[1, 0]}
     />
   ),

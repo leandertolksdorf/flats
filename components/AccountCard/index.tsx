@@ -1,50 +1,65 @@
-import Avatar from "components/Avatar";
+import Button from "components/Button";
 import Card from "components/Card";
 import CardList from "components/CardList";
-import { accountCardHeadingText, emailText, nameText } from "constants/strings";
+import {
+  accountCardHeadingText,
+  emailText,
+  nameText,
+  signOutText,
+} from "constants/strings";
 import React, { useEffect, useState } from "react";
 import useStore from "store";
 
 const AccountCard = () => {
-  const [user, updateUser, profile, updateProfile] = useStore((state: any) => [
-    state.user,
-    state.updateUser,
-    state.profile,
-    state.updateProfile,
-  ]);
+  const [user, updateUser, signOut, profile, updateProfile] = useStore(
+    (state: any) => [
+      state.user,
+      state.updateUser,
+      state.signOut,
+      state.profile,
+      state.updateProfile,
+    ]
+  );
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   useEffect(() => {
     setFirstName(profile?.first_name);
     setEmail(user?.email);
   }, [profile, user]);
+  const handleSignOut = () => {
+    signOut();
+  };
   return (
-    <CardList
-      title={accountCardHeadingText}
-      images={[<Avatar seed={profile?.avatar_seed || "seed"} size={20} />]}
-      onPressImage={() => {
-        updateProfile({
-          avatar_seed: Math.random(),
-        });
-      }}
-    >
-      <Card
-        editable
-        title={nameText}
-        icon="pencil"
-        value={firstName}
-        onChangeText={setFirstName}
-        onEndEditing={() => updateProfile()}
-      />
-      <Card
-        editable
-        title={emailText}
-        icon="pencil"
-        value={email}
-        onChangeText={setEmail}
-        onEndEditing={() => updateUser({ email: email })}
-      />
-    </CardList>
+    <>
+      <CardList
+        title={accountCardHeadingText}
+        onPressImage={() => {
+          updateProfile({
+            avatar_seed: Math.random(),
+          });
+        }}
+      >
+        <Card
+          editable
+          title={nameText}
+          icon="pencil"
+          value={firstName}
+          onChangeText={setFirstName}
+          onEndEditing={() => updateProfile()}
+        />
+        <Card
+          editable
+          title={emailText}
+          icon="pencil"
+          value={email}
+          onChangeText={setEmail}
+          onEndEditing={() => updateUser({ email: email })}
+        />
+      </CardList>
+      <Button text title="Abmelden" onPress={handleSignOut}>
+        {signOutText}
+      </Button>
+    </>
   );
 };
 export default AccountCard;
