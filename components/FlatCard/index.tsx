@@ -27,8 +27,8 @@ const FlatCard = ({ navigation }: any) => {
     ]
   );
 
-  const [flatName, setFlatName] = useState(flat.name);
-  const [flatCity, setFlatCity] = useState(flat.city);
+  const [flatName, setFlatName] = useState(flat?.name);
+  const [flatCity, setFlatCity] = useState(flat?.city);
 
   // Share flat code
   const handleInvite = async () => {

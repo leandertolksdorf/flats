@@ -73,6 +73,7 @@ const useStore = create<State>((set, get) => ({
       profile: null,
       flat: null,
       flatmates: null,
+      inviteCode: null,
     });
   },
   fetchAll: async () => {
@@ -136,12 +137,13 @@ const useStore = create<State>((set, get) => ({
     }
   },
   updateFlat: async (update: Partial<definitions["flats"]>) => {
+    console.log(get().flat?.id);
     const { data, error } = await supabase
       .from<definitions["flats"]>("flats")
       .update(update)
       .eq("id", get().flat?.id);
 
-    // console.log("Update Flat:", data, "Error:", error);
+    console.log("Update Flat:", data, "Error:", error);
     await get().fetchFlat();
     get().showSnackbar("Gespeichert!");
   },
