@@ -1,27 +1,38 @@
-import { tailwind } from "lib/tailwind";
-import React from "react";
-import {
-  KeyboardAvoidingView,
-  SafeAreaView,
-  ScrollView,
-  View,
-} from "react-native";
 import { useHeaderHeight } from "@react-navigation/elements";
+import { LinearGradient } from "expo-linear-gradient";
+import { getColor, tailwind } from "lib/tailwind";
+import React, { useState } from "react";
+import { KeyboardAvoidingView, ScrollView, View } from "react-native";
 
-const Screen = ({ scroll, ...props }: any) => {
+const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
   const headerHeight = useHeaderHeight();
-  const Wrapper = scroll ? (
-    <ScrollView style={tailwind("pt-4")} {...props} />
-  ) : (
-    <View style={tailwind("pt-4")} {...props} />
-  );
+  const [isHeroExpanded, setIsHeroExpanded] = useState(false);
   return (
     <KeyboardAvoidingView
       keyboardVerticalOffset={headerHeight}
-      style={tailwind("flex-1")}
+      style={tailwind("")}
       behavior="padding"
     >
-      {Wrapper}
+      <LinearGradient
+        style={tailwind("w-full h-full")}
+        colors={[getColor("primary-900"), getColor("primary-500")]}
+        start={[0, 0]}
+        end={[1, 0]}
+      >
+        {/* HERO */}
+        <View>{hero && hero()}</View>
+        {/* CONTENT */}
+        <View style={tailwind("rounded-t-2xl overflow-hidden flex-1")}>
+          <LinearGradient
+            style={tailwind("w-full flex-1")}
+            colors={[getColor("primary-100"), getColor("primary-300")]}
+            start={[0, 0]}
+            end={[1, 0]}
+          >
+            <ScrollView style={tailwind("pt-4 flex-1")}>{children}</ScrollView>
+          </LinearGradient>
+        </View>
+      </LinearGradient>
     </KeyboardAvoidingView>
   );
 };

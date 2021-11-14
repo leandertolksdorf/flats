@@ -1,14 +1,10 @@
-import { Button, FlatCard, Text } from "components";
 import AccountCard from "components/AccountCard";
+import Button from "components/Button";
+import FlatCard from "components/FlatCard";
+import HomeHero from "components/HomeHero";
 import Padding from "components/Padding";
-import {
-  createFlatText,
-  greetingHeadingWithNameText,
-  greetingSubheadingText,
-  joinFlatText,
-  noFlatText,
-  signOutText,
-} from "constants/strings";
+import Text from "components/Text";
+import { createFlatText, joinFlatText, noFlatText } from "constants/strings";
 import { tailwind } from "lib/tailwind";
 import React from "react";
 import useStore from "store";
@@ -23,14 +19,10 @@ const Home = ({ navigation }: any) => {
   ]);
 
   return (
-    <Screen scroll>
-      <Padding>
-        <Text style={tailwind("text-3xl font-bold")}>
-          {greetingHeadingWithNameText(profile?.first_name)}
-        </Text>
-        <Text style={tailwind("text-3xl")}>{greetingSubheadingText}</Text>
-      </Padding>
-      {flat === null ? (
+    <Screen scroll hero={() => <HomeHero />}>
+      {flat !== null ? (
+        <FlatCard />
+      ) : (
         <Padding>
           <Text style={tailwind("text-xl pb-3")}>{noFlatText}</Text>
           <Button onPress={() => navigation.push("joinFlat")}>
@@ -40,17 +32,8 @@ const Home = ({ navigation }: any) => {
             {createFlatText}
           </Button>
         </Padding>
-      ) : (
-        <>
-          <FlatCard />
-        </>
       )}
       <AccountCard />
-      <Padding>
-        <Button text title="Abmelden" onPress={signOut}>
-          {signOutText}
-        </Button>
-      </Padding>
     </Screen>
   );
 };

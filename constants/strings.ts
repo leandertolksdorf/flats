@@ -21,6 +21,18 @@ export const generateInviteCodeText = "Code generieren";
  */
 export const welcomeHeadingText = "Willkommen bei Flats!";
 export const welcomeSubheadingText = "Schön dich zu sehen";
+export const daytimeGreetingText = () => {
+  const hour = new Date().getHours();
+  let greeting;
+  if (hour < 9) {
+    greeting = "Guten Morgen!";
+  } else if (hour < 18) {
+    greeting = "Guten Tag!";
+  } else {
+    greeting = "Guten Abend!";
+  }
+  return greeting;
+};
 export const signInHeadingText = "Willkommen zurück!";
 export const signInSubheadingText = "Melde dich an";
 export const signUpHeadingText = "Neu hier?";
@@ -31,7 +43,7 @@ export const noFlatText =
   "Du bist noch in keiner WG. Trete einer bei oder erstelle eine neue.";
 export const greetingHeadingWithNameText = (name: string | null) =>
   `Hey ${name}!`;
-export const greetingSubheadingText = "Willkommen zuhause";
+export const greetingSubheadingText = "Willkommen";
 export const flatCardHeadingText = "Deine WG";
 export const accountCardHeadingText = "Account";
 export const flatCodeShareText = (code: string | null) =>

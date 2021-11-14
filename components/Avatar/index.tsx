@@ -5,7 +5,7 @@ import { View } from "react-native";
 import { SvgFromXml } from "react-native-svg";
 import rgbaToHex from "util/rgbaToHex";
 
-const Avatar = (props: { seed: string; size: number }) => {
+const Avatar = (props: { seed: string; size: number; round?: boolean }) => {
   const backgroundColors = [
     getColor("primary-600"),
     getColor("green-500"),
@@ -22,7 +22,13 @@ const Avatar = (props: { seed: string; size: number }) => {
     round: false,
   });
   return (
-    <View style={tailwind(`w-${props.size} h-${props.size}`)}>
+    <View
+      style={tailwind(
+        `w-${props.size} h-${props.size} ${
+          props.round ? "rounded-full overflow-hidden" : ""
+        }`
+      )}
+    >
       <SvgFromXml xml={svgXml} width="100%" height="100%" />
     </View>
   );
