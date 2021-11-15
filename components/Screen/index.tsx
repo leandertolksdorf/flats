@@ -19,7 +19,7 @@ const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
         end={[1, 0]}
       >
         {/* HERO */}
-        <View style={tailwind("px-3 pb-2")}>{hero && hero()}</View>
+        {hero && <View style={tailwind("px-3 pb-2")}>{hero()}</View>}
         {/* CONTENT */}
         <View
           style={tailwind(
