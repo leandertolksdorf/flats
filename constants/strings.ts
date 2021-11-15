@@ -7,7 +7,7 @@ export const signOutText = "Abmelden";
 export const nameText = "Name";
 export const emailText = "E-Mail";
 export const passwordText = "Passwort";
-export const passwordValidationText = "Passwort bestätigen";
+export const passwordConfirmationText = "Passwort bestätigen";
 export const cityText = "Stadt";
 export const flatCodeText = "WG-Code";
 export const flatNameText = "WG-Name";
@@ -24,6 +24,10 @@ export const generateInviteCodeText = "Code generieren";
 export const invalidEmailErrorText = "Ungültige E-Mail";
 export const invalidCredentialsErrorText = "Ungültige Anmeldedaten";
 export const passwordRequiredErrorText = "Passwort ist ein Pflichtfeld";
+export const passwordConfirmationRequiredErrorText =
+  "Passwortbestätigung ist ein Pflichtfeld";
+export const invalidPasswordConfirmationErrorText =
+  "Passwörter müssen übereinstimmen";
 export const nameRequiredErrorText = "Name ist ein Pflichtfeld";
 export const emailRequiredErrorText = "E-Mail ist ein Pflichtfeld";
 export const genericErrorText = "Fehler";

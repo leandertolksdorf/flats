@@ -4,8 +4,11 @@ import {
   emailRequiredErrorText,
   emailText,
   invalidEmailErrorText,
+  invalidPasswordConfirmationErrorText,
   nameRequiredErrorText,
   nameText,
+  passwordConfirmationRequiredErrorText,
+  passwordConfirmationText,
   passwordRequiredErrorText,
   passwordText,
   signUpText,
@@ -20,6 +23,7 @@ import useStore from "../../store";
 type FormData = {
   email: string;
   password: string;
+  password_confirmation: string;
   first_name: string;
 };
 const SetupSignUp = ({ navigation }: { navigation: any }) => {
@@ -28,6 +32,7 @@ const SetupSignUp = ({ navigation }: { navigation: any }) => {
   const {
     control,
     handleSubmit,
+    getValues,
     setError,
     formState: { errors },
   } = useForm<FormData>({
@@ -102,6 +107,24 @@ const SetupSignUp = ({ navigation }: { navigation: any }) => {
             />
           )}
         />
+        <Controller
+          name="password_confirmation"
+          control={control}
+          rules={{
+            required: true,
+            validate: (value) => value === getValues().password,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <Input
+              label={passwordConfirmationText}
+              secureTextEntry
+              autoCapitalize="none"
+              value={value}
+              onBlur={onBlur}
+              onChangeText={onChange}
+            />
+          )}
+        />
         <Button onPress={onSubmit}>{signUpText}</Button>
         {errors.first_name?.type === "required" && (
           <Text style={tailwind("text-red-800 font-bold text-center")}>
@@ -121,6 +144,16 @@ const SetupSignUp = ({ navigation }: { navigation: any }) => {
         {errors.password?.type === "required" && (
           <Text style={tailwind("text-red-800 font-bold text-center")}>
             {passwordRequiredErrorText}
+          </Text>
+        )}
+        {errors.password_confirmation?.type === "required" && (
+          <Text style={tailwind("text-red-800 font-bold text-center")}>
+            {passwordConfirmationRequiredErrorText}
+          </Text>
+        )}
+        {errors.password_confirmation?.type === "validate" && (
+          <Text style={tailwind("text-red-800 font-bold text-center")}>
+            {invalidPasswordConfirmationErrorText}
           </Text>
         )}
       </Padding>
