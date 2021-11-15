@@ -24,6 +24,7 @@ export const StackNavigatorScreenOptions: StackNavigationOptions = {
   headerTintColor: getColor("pink-500"),
   headerTitleStyle: tailwind("text-xl text-white"),
   headerTitleAlign: "center",
+  // headerShown: false,
   headerBackground: () => (
     <LinearGradient
       style={tailwind("w-full h-full")}
@@ -55,7 +56,7 @@ export const BottomTabNavigatorScreenOptions: (props: {
   tabBarBackground: () => (
     <LinearGradient
       style={tailwind("w-full h-full")}
-      colors={[getColor("primary-100"), getColor("primary-300")]}
+      colors={[getColor("primary-900"), getColor("primary-500")]}
       start={[0, 0]}
       end={[1, 0]}
     />
