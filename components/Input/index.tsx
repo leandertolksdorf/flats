@@ -8,9 +8,7 @@ const Input = (props: any) => {
   return (
     <View
       style={tailwind(
-        `py-1 px-3 mb-2 bg-primary-200 ${
-          isFocus ? "border-primary-800" : "border-transparent"
-        } border-2 rounded`
+        `py-1 px-3 mb-2 bg-primary-200 border-primary-800 border rounded`
       )}
     >
       <Text style={tailwind("text-sm font-bold text-primary-800")}>
@@ -18,7 +16,9 @@ const Input = (props: any) => {
       </Text>
       <TextInput
         onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        // onBlur={() => {
+        //   setIsFocus(false);
+        // }}
         style={tailwind("text-2xl pb-1 font-medium text-primary-800")}
         placeholderTextColor={getColor("primary-400")}
         {...props}

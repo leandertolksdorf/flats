@@ -7,6 +7,7 @@ export const signOutText = "Abmelden";
 export const nameText = "Name";
 export const emailText = "E-Mail";
 export const passwordText = "Passwort";
+export const passwordValidationText = "Passwort bestätigen";
 export const cityText = "Stadt";
 export const flatCodeText = "WG-Code";
 export const flatNameText = "WG-Name";

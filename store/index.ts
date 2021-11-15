@@ -42,7 +42,7 @@ type State = {
     firstName?: string;
   }) => void;
   clearSetupForm: () => void;
-  signIn: () => void;
+  signIn: (data: { email: string; password: string }) => void;
   signUp: () => void;
   signOut: () => void;
   // Flat setup (create and join)
@@ -172,14 +172,17 @@ const useStore = create<State>((set, get) => ({
         firstName: "",
       },
     })),
-  signIn: async () => {
-    const { user, session } = await supabase.auth.signIn({
-      email: get().setupForm.email,
-      password: get().setupForm.password,
+  signIn: async (data: { email: string; password: string }) => {
+    const { user, session, error } = await supabase.auth.signIn({
+      email: data.email,
+      password: data.password,
     });
-    get().clearSetupForm();
-    get().fetchProfile();
-    get().fetchFlat();
+    if (!error) {
+      get().fetchProfile();
+      get().fetchFlat();
+    } else {
+      throw new Error(error.message);
+    }
   },
   signUp: async () => {
     const { user, session, error } = await supabase.auth.signUp(
