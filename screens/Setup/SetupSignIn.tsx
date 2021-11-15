@@ -1,6 +1,14 @@
 import { Button, Input, Text } from "components";
 import Padding from "components/Padding";
-import { emailText, passwordText, signInText } from "constants/strings";
+import {
+  emailRequiredErrorText,
+  emailText,
+  invalidCredentialsErrorText,
+  invalidEmailErrorText,
+  passwordRequiredErrorText,
+  passwordText,
+  signInText,
+} from "constants/strings";
 import { tailwind } from "lib/tailwind";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -78,19 +86,24 @@ const SetupSignIn = ({ navigation }: { navigation: any }) => {
           )}
         />
         <Button onPress={onSubmit}>{signInText}</Button>
+        {errors.email?.type === "required" && (
+          <Text style={tailwind("text-red-800 font-bold text-center")}>
+            {emailRequiredErrorText}
+          </Text>
+        )}
         {errors.email?.type === "validate" && (
           <Text style={tailwind("text-red-800 font-bold text-center")}>
-            Ungültige E-Mail
+            {invalidEmailErrorText}
           </Text>
         )}
         {errors.email?.type === "invalidCredentials" && (
           <Text style={tailwind("text-red-800 font-bold text-center")}>
-            Ungültige Anmeldedaten
+            {invalidCredentialsErrorText}
           </Text>
         )}
         {errors.password?.type === "required" && (
           <Text style={tailwind("text-red-800 font-bold text-center")}>
-            Passwort ist ein Pflichtfeld.
+            {passwordRequiredErrorText}
           </Text>
         )}
       </Padding>
