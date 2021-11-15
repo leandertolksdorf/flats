@@ -30,20 +30,12 @@ type State = {
   // Flatmates
   flatmates: definitions["profiles"][] | null;
   fetchFlatmates: () => void;
-  // Auth form
-  setupForm: {
+  signIn: (data: { email: string; password: string }) => void;
+  signUp: (data: {
     email: string;
     password: string;
-    firstName: string;
-  };
-  setSetupForm: (data: {
-    email?: string;
-    password?: string;
-    firstName?: string;
+    first_name: string;
   }) => void;
-  clearSetupForm: () => void;
-  signIn: (data: { email: string; password: string }) => void;
-  signUp: () => void;
   signOut: () => void;
   // Flat setup (create and join)
   flatForm: {
@@ -157,47 +149,39 @@ const useStore = create<State>((set, get) => ({
     set({ flatmates: data });
   },
   // Auth
-  setupForm: {
-    email: "",
-    password: "",
-    firstName: "",
-  },
-  setSetupForm: (data) =>
-    set((state) => ({ setupForm: { ...state.setupForm, ...data } })),
-  clearSetupForm: () =>
-    set((state) => ({
-      setupForm: {
-        email: "",
-        password: "",
-        firstName: "",
-      },
-    })),
   signIn: async (data: { email: string; password: string }) => {
     const { user, session, error } = await supabase.auth.signIn({
       email: data.email,
       password: data.password,
     });
     if (!error) {
-      get().fetchProfile();
-      get().fetchFlat();
+      get().fetchAll();
     } else {
       throw new Error(error.message);
     }
   },
-  signUp: async () => {
+  signUp: async (data: {
+    email: string;
+    password: string;
+    first_name: string;
+  }) => {
     const { user, session, error } = await supabase.auth.signUp(
       {
-        email: get().setupForm.email,
-        password: get().setupForm.password,
+        email: data.email,
+        password: data.password,
       },
       {
         data: {
-          first_name: get().setupForm.firstName,
+          first_name: data.first_name,
         },
       }
     );
-    get().clearSetupForm();
-    await get().fetchAll();
+    console.log(user);
+    if (!error) {
+      await get().fetchAll();
+    } else {
+      throw new Error(error.message);
+    }
   },
   signOut: async () => {
     get().clearAll();
