@@ -21,7 +21,7 @@ export const NavigationTheme: Theme = {
 };
 
 export const StackNavigatorScreenOptions: StackNavigationOptions = {
-  headerTintColor: getColor("pink-500"),
+  headerTintColor: getColor("secondary-500"),
   headerTitleStyle: tailwind("text-xl text-white"),
   headerTitleAlign: "center",
   // headerShown: false,
@@ -39,7 +39,7 @@ export const StackNavigatorScreenOptions: StackNavigationOptions = {
   headerBackImage: (tintColor) => (
     <FontAwesome5
       name="arrow-circle-left"
-      color={getColor("pink-500")}
+      color={getColor("secondary-500")}
       size={22}
       style={tailwind("mx-2")}
     />
@@ -50,7 +50,7 @@ export const BottomTabNavigatorScreenOptions: (props: {
   route: RouteProp<ParamListBase, string>;
 }) => BottomTabNavigationOptions = ({ route }) => ({
   headerShown: false,
-  tabBarActiveTintColor: getColor("pink-600"),
+  tabBarActiveTintColor: getColor("secondary-500"),
   tabBarInactiveTintColor: getColor("primary-800"),
   tabBarStyle: tailwind("border-0"),
   tabBarBackground: () => (

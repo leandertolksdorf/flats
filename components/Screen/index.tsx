@@ -1,12 +1,11 @@
 import { useHeaderHeight } from "@react-navigation/elements";
 import { LinearGradient } from "expo-linear-gradient";
 import { getColor, tailwind } from "lib/tailwind";
-import React, { useState } from "react";
+import React from "react";
 import { KeyboardAvoidingView, ScrollView, View } from "react-native";
 
 const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
   const headerHeight = useHeaderHeight();
-  const [isHeroExpanded, setIsHeroExpanded] = useState(false);
   return (
     <KeyboardAvoidingView
       keyboardVerticalOffset={headerHeight}
@@ -24,7 +23,7 @@ const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
         {/* CONTENT */}
         <View
           style={tailwind(
-            "bg-primary-300 rounded-t-2xl overflow-hidden flex-1"
+            "bg-primary-200 rounded-t-2xl border-secondary-500 border-t-8 overflow-hidden flex-1"
           )}
         >
           <ScrollView style={tailwind("pt-3 flex-1")}>{children}</ScrollView>

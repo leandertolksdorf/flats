@@ -10,7 +10,7 @@ const Input = (props: any) => {
     <TouchableWithoutFeedback
       onPress={() => inputRef.current?.focus()}
       style={tailwind(
-        `py-1 px-3 mb-2 bg-primary-200 border-primary-800 border rounded`
+        `py-1 px-3 mb-2 bg-primary-100 border-primary-800 border rounded`
       )}
     >
       <Text style={tailwind("text-sm font-bold text-primary-800")}>
