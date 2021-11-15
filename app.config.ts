@@ -5,7 +5,7 @@ export default {
     name: "flats",
     slug: "flats",
     owner: "farbigmedia",
-    version: "0.1.0",
+    version: "0.1.1",
     orientation: "portrait",
     icon: "./assets/icon.png",
     splash: {
@@ -28,6 +28,7 @@ export default {
         backgroundColor: "#FFFFFF",
       },
       permissions: [],
+      versionCode: 2,
     },
     web: {
       favicon: "./assets/favicon.png",

@@ -6,15 +6,16 @@ import { SvgFromXml } from "react-native-svg";
 import rgbaToHex from "util/rgbaToHex";
 
 const Avatar = (props: { seed: string; size: number; round?: boolean }) => {
-  const backgroundColors = [
-    getColor("primary-600"),
-    getColor("green-500"),
-    getColor("yellow-500"),
-  ].map(rgbaToHex);
+  const backgroundColors = [getColor("white")].map(rgbaToHex);
   const avatarColors = [
-    getColor("pink-600"),
-    getColor("blue-500"),
     getColor("gray-500"),
+    getColor("red-500"),
+    getColor("yellow-500"),
+    getColor("green-500"),
+    getColor("blue-500"),
+    getColor("indigo-500"),
+    getColor("purple-500"),
+    getColor("pink-500"),
   ].map(rgbaToHex);
   const svgXml = avatar(props.seed, {
     backgroundColors,

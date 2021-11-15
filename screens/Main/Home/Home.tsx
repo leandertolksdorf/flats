@@ -1,7 +1,7 @@
 import AccountCard from "components/AccountCard";
 import Button from "components/Button";
 import FlatCard from "components/FlatCard";
-import HomeHero from "components/HomeHero";
+import Header from "components/Header";
 import Padding from "components/Padding";
 import Text from "components/Text";
 import { createFlatText, joinFlatText, noFlatText } from "constants/strings";
@@ -19,7 +19,7 @@ const Home = ({ navigation }: any) => {
   ]);
 
   return (
-    <Screen scroll hero={() => <HomeHero />}>
+    <Screen scroll hero={() => <Header />}>
       {flat !== null ? (
         <FlatCard />
       ) : (

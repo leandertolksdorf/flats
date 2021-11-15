@@ -20,17 +20,14 @@ const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
         end={[1, 0]}
       >
         {/* HERO */}
-        <View>{hero && hero()}</View>
+        <View style={tailwind("px-3 pb-2")}>{hero && hero()}</View>
         {/* CONTENT */}
-        <View style={tailwind("rounded-t-2xl overflow-hidden flex-1")}>
-          <LinearGradient
-            style={tailwind("w-full flex-1")}
-            colors={[getColor("primary-100"), getColor("primary-300")]}
-            start={[0, 0]}
-            end={[1, 0]}
-          >
-            <ScrollView style={tailwind("pt-4 flex-1")}>{children}</ScrollView>
-          </LinearGradient>
+        <View
+          style={tailwind(
+            "bg-primary-300 rounded-t-2xl overflow-hidden flex-1"
+          )}
+        >
+          <ScrollView style={tailwind("flex-1")}>{children}</ScrollView>
         </View>
       </LinearGradient>
     </KeyboardAvoidingView>

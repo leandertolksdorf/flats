@@ -14,14 +14,18 @@ const MainNavigator = () => {
         component={HomeStack}
         options={{
           tabBarLabel: homeTabLabelText,
+          headerTitle: homeTabLabelText,
         }}
       />
       {/* <MainTab.Screen
-        name="tasks"
-        component={HomeStack}
-        options={{ tabBarLabel: tasksTabLabelText }}
-      />
-      <MainTab.Screen
+        name="tasksTab"
+        component={Tasks}
+        options={{
+          tabBarLabel: tasksTabLabelText,
+          headerTitle: tasksTabLabelText,
+        }}
+      /> */}
+      {/* <MainTab.Screen
         name="finance"
         component={HomeStack}
         options={{ tabBarLabel: financeTabLabelText }}
