@@ -18,6 +18,17 @@ export const inviteText = "Einladen";
 export const generateInviteCodeText = "Code generieren";
 
 /**
+ * Error messages
+ */
+
+export const invalidEmailErrorText = "Ungültige E-Mail";
+export const invalidCredentialsErrorText = "Ungültige Anmeldedaten";
+export const passwordRequiredErrorText = "Passwort ist ein Pflichtfeld";
+export const nameRequiredErrorText = "Name ist ein Pflichtfeld";
+export const emailRequiredErrorText = "E-Mail ist ein Pflichtfeld";
+export const genericErrorText = "Fehler";
+
+/**
  * Longer strings
  */
 export const welcomeHeadingText = "Willkommen bei Flats!";
