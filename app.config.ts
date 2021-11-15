@@ -24,7 +24,7 @@ export default {
     android: {
       package: "com.farbigmedia.flats",
       adaptiveIcon: {
-        foregroundImage: "./assets/adaptive-icon.png",
+        foregroundImage: "./assets/icon.png",
         backgroundColor: "#FFFFFF",
       },
       permissions: [],
