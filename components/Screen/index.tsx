@@ -27,7 +27,7 @@ const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
             "bg-primary-300 rounded-t-2xl overflow-hidden flex-1"
           )}
         >
-          <ScrollView style={tailwind("flex-1")}>{children}</ScrollView>
+          <ScrollView style={tailwind("pt-3 flex-1")}>{children}</ScrollView>
         </View>
       </LinearGradient>
     </KeyboardAvoidingView>
