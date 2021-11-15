@@ -19,11 +19,8 @@ const SetupSignUp = ({ navigation }: { navigation: any }) => {
   return (
     <Screen>
       <Padding>
-        {/* <Text style={tailwind("text-3xl font-bold")}>
-          {signUpHeadingText}
-        </Text> */}
-        {/* <Text style={tailwind("text-3xl pb-3")}>{signUpSubheadingText}</Text> */}
         <Input
+          autoFocus
           label={nameText}
           value={setupForm.firstName}
           onChangeText={(text: string) => setSetupForm({ firstName: text })}

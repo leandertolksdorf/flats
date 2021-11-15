@@ -15,8 +15,6 @@ const SetupSignIn = ({ navigation }: { navigation: any }) => {
   return (
     <Screen>
       <Padding>
-        {/* <Text style={tailwind("text-3xl font-bold")}>{signInHeadingText}</Text> */}
-        {/* <Text style={tailwind("text-3xl pb-3")}>{signInSubheadingText}</Text> */}
         <Input
           label={emailText}
           autoCompleteType="email"
