@@ -29,8 +29,8 @@ const CardList = ({
       </View>
       <View
         style={{
-          borderTopWidth: 0.25,
-          ...tailwind("border-primary-400"),
+          borderTopWidth: 0.5,
+          ...tailwind("border-primary-300"),
         }}
       >
         {props.children}

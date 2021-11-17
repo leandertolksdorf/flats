@@ -17,8 +17,8 @@ const Card = ({ title, value, children, ...props }: any) => {
     <>
       <Wrapper
         style={{
-          borderBottomWidth: 0.25,
-          ...tailwind("py-2 px-4 bg-primary-100 border-primary-400"),
+          borderBottomWidth: 0.5,
+          ...tailwind("py-2 px-4 bg-primary-100 border-primary-300"),
         }}
         {...props}
       >
