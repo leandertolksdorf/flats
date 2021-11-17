@@ -14,8 +14,7 @@ import SetupStack from "./navigation/Setup";
 import useStore from "./store";
 
 const UserContainer = () => {
-  const [session, setSession, fetchAll] = useStore((state: any) => [
-    state.session,
+  const [setSession, fetchAll] = useStore((state: any) => [
     state.setSession,
     state.fetchAll,
   ]);
@@ -43,7 +42,6 @@ const UserContainer = () => {
 };
 
 export default function App() {
-  // Set defalult font
   let [fontsLoaded, error] = useFonts({
     "BerlinType-Regular": require("./assets/fonts/BerlinType-Regular.otf"),
     "BerlinType-Bold": require("./assets/fonts/BerlinType-Bold.otf"),
