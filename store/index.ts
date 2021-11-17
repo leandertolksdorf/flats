@@ -4,6 +4,14 @@ import create from "zustand";
 import supabase from "../lib/supabase";
 
 type State = {
+  // Snackbar
+  snackbarVisible: boolean;
+  snackbarMessage: string;
+  snackbarType: "success" | "warning" | "error" | "neutral";
+  showSnackbar: (data: {
+    message: string;
+    type: "success" | "warning" | "error" | "neutral";
+  }) => void;
   // All
   clearAll: () => void;
   fetchAll: () => void;
@@ -50,6 +58,19 @@ type State = {
 };
 
 const useStore = create<State>((set, get) => ({
+  //Snackbar
+  snackbarVisible: false,
+  snackbarMessage: "",
+  snackbarType: "neutral",
+  showSnackbar: ({ message, type }) => {
+    set({
+      snackbarVisible: true,
+      snackbarMessage: message,
+      snackbarType: type,
+    });
+    setTimeout(() => set({ snackbarVisible: false }), 5000);
+  },
+  // All
   clearAll: () => {
     set({
       profile: null,

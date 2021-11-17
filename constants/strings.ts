@@ -20,6 +20,8 @@ export const inviteText = "Einladen";
 export const saveText = "Speichern";
 export const generateInviteCodeText = "Code generieren";
 export const editProfileText = "Profil bearbeiten";
+export const saveSuccessText = "Gespeichert";
+export const failureText = "Fehler";
 
 /**
  * Error messages
