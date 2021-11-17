@@ -1,17 +1,19 @@
 import Avatar from "components/Avatar";
 import Card from "components/Card";
 import CardList from "components/CardList";
+import Text from "components/Text";
 import {
   cityText,
   flatCardHeadingText,
   flatCodeShareText,
+  flatmatesText,
   generateInviteCodeText,
   inviteText,
   nameText,
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
 import React, { useState } from "react";
-import { Share, Text } from "react-native";
+import { Share, View } from "react-native";
 import useStore from "store";
 import { definitions } from "types/supabase";
 
@@ -48,8 +50,14 @@ const FlatCard = ({ navigation }: any) => {
   };
 
   const FlatmatesAvatars: typeof Avatar[] = flatmates.map(
-    (flatmate: definitions["profiles"]) => (
-      <Avatar seed={flatmate.avatar_seed || "seed"} size={10} />
+    (flatmate: definitions["profiles"], i: number) => (
+      <Avatar
+        key={i}
+        seed={flatmate.avatar_seed || "seed"}
+        size={6}
+        round
+        style={tailwind("ml-1")}
+      />
     )
   );
   return (
@@ -58,15 +66,20 @@ const FlatCard = ({ navigation }: any) => {
       actionText="Bearbeiten"
       onPressAction={() => {}}
     >
-      <Card title={nameText} value={flatName} />
-      <Card title={cityText} value={flatCity}>
-        <Text style={tailwind("text-xl")}>{flat?.city}</Text>
+      <Card title={flatmatesText}>
+        <View style={tailwind("flex-row")}>{FlatmatesAvatars}</View>
       </Card>
-      <Card
-        title={inviteText}
-        value={inviteCode || generateInviteCodeText}
-        onPress={handleInvite}
-      ></Card>
+      <Card title={nameText}>
+        <Text style={tailwind("text-xl")}>{flatName}</Text>
+      </Card>
+      <Card title={cityText}>
+        <Text style={tailwind("text-xl")}>{flatCity}</Text>
+      </Card>
+      <Card title={inviteText} onPress={handleInvite}>
+        <Text style={tailwind("text-xl")}>
+          {inviteCode || generateInviteCodeText}
+        </Text>
+      </Card>
     </CardList>
   );
 };
