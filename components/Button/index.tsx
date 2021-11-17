@@ -16,6 +16,7 @@ const Button = (props: any) => {
         style={{
           ...tailwind(`text-xl ${!props.text ? "text-white" : ""} text-center`),
           fontFamily: props.text ? "BerlinType-Regular" : "BerlinType-Bold",
+          ...props.textStyle,
         }}
       >
         {props.children}

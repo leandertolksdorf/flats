@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import Avatar from "components/Avatar";
 import Card from "components/Card";
 import CardList from "components/CardList";
@@ -12,25 +13,20 @@ import {
   nameText,
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
-import React, { useState } from "react";
+import React from "react";
 import { Share, View } from "react-native";
 import useStore from "store";
 import { definitions } from "types/supabase";
 
-const FlatCard = ({ navigation }: any) => {
+const FlatCard = () => {
+  const navigation = useNavigation();
   // Edit fields
-  const [flat, updateFlat, inviteCode, createInvite, flatmates] = useStore(
-    (state: any) => [
-      state.flat,
-      state.updateFlat,
-      state.inviteCode,
-      state.createInvite,
-      state.flatmates,
-    ]
-  );
-
-  const [flatName, setFlatName] = useState(flat?.name);
-  const [flatCity, setFlatCity] = useState(flat?.city);
+  const [flat, inviteCode, createInvite, flatmates] = useStore((state: any) => [
+    state.flat,
+    state.inviteCode,
+    state.createInvite,
+    state.flatmates,
+  ]);
 
   // Share flat code
   const handleInvite = async () => {
@@ -64,16 +60,16 @@ const FlatCard = ({ navigation }: any) => {
     <CardList
       title={flatCardHeadingText}
       actionText="Bearbeiten"
-      onPressAction={() => {}}
+      onPressAction={() => navigation.navigate("EditFlat")}
     >
       <Card title={flatmatesText}>
         <View style={tailwind("flex-row")}>{FlatmatesAvatars}</View>
       </Card>
       <Card title={nameText}>
-        <Text style={tailwind("text-xl")}>{flatName}</Text>
+        <Text style={tailwind("text-xl")}>{flat.name}</Text>
       </Card>
       <Card title={cityText}>
-        <Text style={tailwind("text-xl")}>{flatCity}</Text>
+        <Text style={tailwind("text-xl")}>{flat.city}</Text>
       </Card>
       <Card title={inviteText} onPress={handleInvite}>
         <Text style={tailwind("text-xl")}>

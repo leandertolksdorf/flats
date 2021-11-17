@@ -12,9 +12,12 @@ export const cityText = "Stadt";
 export const flatCodeText = "WG-Code";
 export const flatNameText = "WG-Name";
 export const joinFlatText = "Beitreten";
+export const leaveFlatText = "WG verlassen";
+export const editFlatText = "WG bearbeiten";
 export const createFlatText = "Erstellen";
 export const flatmatesText = "Mitglieder";
 export const inviteText = "Einladen";
+export const saveText = "Speichern";
 export const generateInviteCodeText = "Code generieren";
 
 /**
@@ -30,6 +33,8 @@ export const invalidPasswordConfirmationErrorText =
   "Passwörter müssen übereinstimmen";
 export const nameRequiredErrorText = "Name ist ein Pflichtfeld";
 export const emailRequiredErrorText = "E-Mail ist ein Pflichtfeld";
+export const flatNameRequiredErrorText = "WG-Name ist ein Pflichtfeld";
+export const flatCityRequiredErrorText = "Stadt ist ein Pflichtfeld";
 export const genericErrorText = "Fehler";
 
 /**
@@ -77,5 +82,6 @@ export const signUpScreenTitleText = "Registrieren";
 export const homeScreenTitleText = "Home";
 export const joinFlatScreenTitleText = "Beitreten";
 export const createFlatScreenTitleText = "Erstellen";
+export const editFlatScreenTitleText = "WG bearbeiten";
 export const tasksTabLabelText = "Aufgaben";
 export const financeTabLabelText = "Finanzen";
