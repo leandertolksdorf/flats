@@ -3,6 +3,7 @@ import Padding from "components/Padding";
 import {
   emailRequiredErrorText,
   emailText,
+  genericErrorText,
   invalidEmailErrorText,
   invalidPasswordConfirmationErrorText,
   nameRequiredErrorText,
@@ -28,7 +29,10 @@ type FormData = {
   first_name: string;
 };
 const SetupSignUp = ({ navigation }: SetupStackSignUpScreenProps) => {
-  const signUp = useStore((state) => state.signUp);
+  const [signUp, showSnackbar] = useStore((state) => [
+    state.signUp,
+    state.showSnackbar,
+  ]);
 
   const {
     control,
@@ -48,7 +52,10 @@ const SetupSignUp = ({ navigation }: SetupStackSignUpScreenProps) => {
     try {
       await signUp(data);
     } catch (e) {
-      console.log(e);
+      showSnackbar({
+        message: genericErrorText,
+        type: "error",
+      });
     }
   });
 

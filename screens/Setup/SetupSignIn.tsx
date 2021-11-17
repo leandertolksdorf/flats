@@ -23,7 +23,10 @@ type FormData = {
 };
 
 const SetupSignIn = ({ navigation }: SetupStackSignInScreenProps) => {
-  const signIn = useStore((state) => state.signIn);
+  const [signIn, showSnackbar] = useStore((state) => [
+    state.signIn,
+    state.showSnackbar,
+  ]);
 
   const {
     control,
@@ -41,8 +44,9 @@ const SetupSignIn = ({ navigation }: SetupStackSignInScreenProps) => {
     try {
       await signIn(data);
     } catch {
-      setError("email", {
-        type: "invalidCredentials",
+      showSnackbar({
+        message: invalidCredentialsErrorText,
+        type: "error",
       });
     }
   });
