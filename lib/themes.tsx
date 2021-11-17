@@ -49,7 +49,8 @@ export const StackNavigatorScreenOptions: StackNavigationOptions = {
       style={tailwind("mx-2")}
     />
   ),
-  ...TransitionPresets.SlideFromRightIOS,
+  // cardOverlay: () => <View style={tailwind("flex-1 bg-black")} />,
+  ...TransitionPresets.ModalPresentationIOS,
 };
 
 export const BottomTabNavigatorScreenOptions: (props: {
