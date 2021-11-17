@@ -110,9 +110,9 @@ const useStore = create<State>((set, get) => ({
       .from<definitions["profiles"]>("profiles")
       .update(update)
       .eq("id", get().user?.id);
-    // console.log("Profile:", data, "Error:", error);
     await get().fetchProfile();
-    await get().fetchFlatmates();
+    console.log("PROFILE", get().profile);
+    await get().fetchFlat();
   },
   // Flat
   flat: null,
@@ -137,6 +137,8 @@ const useStore = create<State>((set, get) => ({
       if (hasInviteCode) {
         set({ inviteCode: invite_data[0].shortcode });
       }
+    } else {
+      set({ flat: null });
     }
   },
   updateFlat: async (update: Partial<definitions["flats"]>) => {

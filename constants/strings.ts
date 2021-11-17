@@ -1,6 +1,8 @@
 /**
  * Simple strings
  */
+export const yesText = "Ja";
+export const noText = "Nein";
 export const signInText = "Anmelden";
 export const signUpText = "Registrieren";
 export const signOutText = "Abmelden";
@@ -72,6 +74,8 @@ export const flatCardHeadingText = "Deine WG";
 export const accountCardHeadingText = "Account";
 export const flatCodeShareText = (code: string | null) =>
   `Tritt meiner WG auf Flats bei mit dem Code: ${code} (5 Tage gültig)`;
+export const leaveFlatConfirmationText = (flatName?: string) =>
+  `Willst du deine WG ${flatName + " "}wirklich verlassen?`;
 
 /**
  * Screen & Tab titles

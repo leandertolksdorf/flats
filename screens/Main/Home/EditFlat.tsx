@@ -6,13 +6,18 @@ import {
   flatNameRequiredErrorText,
   flatNameText,
   genericErrorText,
+  leaveFlatConfirmationText,
+  leaveFlatText,
+  noText,
   saveSuccessText,
   saveText,
+  yesText,
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
 import { HomeStackEditFlatScreenProps } from "navigation/Home";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { Alert } from "react-native";
 import { definitions } from "types/supabase";
 import Screen from "../../../components/Screen";
 import useStore from "../../../store";
@@ -20,9 +25,10 @@ import useStore from "../../../store";
 type FormData = Partial<definitions["flats"]>;
 
 const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
-  const [flat, updateFlat, showSnackbar] = useStore((state) => [
+  const [flat, updateFlat, updateProfile, showSnackbar] = useStore((state) => [
     state.flat,
     state.updateFlat,
+    state.updateProfile,
     state.showSnackbar,
   ]);
 
@@ -49,6 +55,23 @@ const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
       showSnackbar({ message: genericErrorText, type: "error" });
     }
   });
+
+  const handleLeaveFlat = () => {
+    Alert.alert(leaveFlatText, leaveFlatConfirmationText(flat?.name), [
+      {
+        text: yesText,
+        onPress: () => {
+          updateProfile({
+            flat_id: null,
+          });
+          navigation.navigate("Home");
+        },
+      },
+      {
+        text: noText,
+      },
+    ]);
+  };
 
   return (
     <Screen>
@@ -86,6 +109,13 @@ const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
           )}
         />
         <Button onPress={onSubmit}>{saveText}</Button>
+        <Button
+          text
+          textStyle={tailwind("text-red-600")}
+          onPress={handleLeaveFlat}
+        >
+          {leaveFlatText}
+        </Button>
         {errors.name?.type === "required" && (
           <Text style={tailwind("text-red-800 font-bold text-center")}>
             {flatNameRequiredErrorText}
