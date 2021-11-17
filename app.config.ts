@@ -18,7 +18,7 @@ export default {
     },
     assetBundlePatterns: ["**/*"],
     ios: {
-      buildNumber: "4",
+      buildNumber: "5",
       bundleIdentifier: "com.farbigmedia.flats",
       supportsTablet: true,
     },
@@ -29,7 +29,7 @@ export default {
         backgroundColor: "#FFFFFF",
       },
       permissions: [],
-      versionCode: 4,
+      versionCode: 5,
     },
     web: {
       favicon: "./assets/favicon.png",
