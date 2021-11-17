@@ -8,10 +8,13 @@ import HomeStack from "navigation/Home";
 import React from "react";
 
 type MainTabParamList = {
-  Home: undefined;
+  HomeTab: undefined;
 };
 
-export type MainTabHomeProps = BottomTabScreenProps<MainTabParamList, "Home">;
+export type MainTabHomeTabProps = BottomTabScreenProps<
+  MainTabParamList,
+  "HomeTab"
+>;
 
 const MainTab = createBottomTabNavigator<MainTabParamList>();
 
@@ -19,7 +22,7 @@ const MainNavigator = () => {
   return (
     <MainTab.Navigator screenOptions={BottomTabNavigatorScreenOptions}>
       <MainTab.Screen
-        name="Home"
+        name="HomeTab"
         component={HomeStack}
         options={{
           tabBarLabel: homeTabLabelText,

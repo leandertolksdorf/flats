@@ -6,17 +6,18 @@ import {
   joinFlatText,
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
+import { HomeStackJoinFlatScreenProps } from "navigation/Home";
 import React, { useState } from "react";
 import useStore from "store";
 import Screen from "../../../components/Screen";
 
-const JoinFlat = ({ navigation }: { navigation: any }) => {
+const JoinFlat = ({ navigation }: HomeStackJoinFlatScreenProps) => {
   const joinFlat = useStore((state: any) => state.joinFlat);
   const [shortcode, setShortcode] = useState("");
 
   const handleSubmit = () => {
     joinFlat(shortcode);
-    navigation.navigate("home");
+    navigation.navigate("Home");
   };
 
   return (

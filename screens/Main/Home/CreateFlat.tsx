@@ -7,11 +7,12 @@ import {
   flatNameText,
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
+import { HomeStackCreateFlatScreenProps } from "navigation/Home";
 import React from "react";
 import Screen from "../../../components/Screen";
 import useStore from "../../../store";
 
-const CreateFlat = ({ navigation }: { navigation: any }) => {
+const CreateFlat = ({ navigation }: HomeStackCreateFlatScreenProps) => {
   const [flatForm, setFlatForm, createFlat] = useStore((state) => [
     state.flatForm,
     state.setFlatForm,
@@ -20,7 +21,7 @@ const CreateFlat = ({ navigation }: { navigation: any }) => {
 
   const handleSubmit = async () => {
     createFlat();
-    navigation.navigate("home");
+    navigation.navigate("Home");
   };
 
   return (

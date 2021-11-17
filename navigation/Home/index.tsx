@@ -1,41 +1,56 @@
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackScreenProps,
+} from "@react-navigation/stack";
 import {
   createFlatScreenTitleText,
-  flatmatesText,
   homeScreenTitleText,
   joinFlatScreenTitleText,
 } from "constants/strings";
 import { StackNavigatorScreenOptions } from "lib/themes";
 import React from "react";
 import CreateFlat from "screens/Main/Home/CreateFlat";
-import FlatMates from "screens/Main/Home/FlatMates";
 import MainHome from "screens/Main/Home/Home";
 import JoinFlat from "screens/Main/Home/JoinFlat";
 
-const Stack = createStackNavigator();
+type HomeStackParamList = {
+  Home: undefined;
+  CreateFlat: undefined;
+  JoinFlat: undefined;
+};
+
+export type HomeStackHomeScreenProps = StackScreenProps<
+  HomeStackParamList,
+  "Home"
+>;
+export type HomeStackCreateFlatScreenProps = StackScreenProps<
+  HomeStackParamList,
+  "CreateFlat"
+>;
+export type HomeStackJoinFlatScreenProps = StackScreenProps<
+  HomeStackParamList,
+  "JoinFlat"
+>;
+
+const Stack = createStackNavigator<HomeStackParamList>();
 
 const HomeStack = () => {
   return (
     <Stack.Navigator screenOptions={StackNavigatorScreenOptions}>
       <Stack.Screen
-        name="home"
+        name="Home"
         component={MainHome}
         options={{ title: homeScreenTitleText }}
       />
       <Stack.Screen
-        name="createFlat"
+        name="CreateFlat"
         component={CreateFlat}
         options={{ title: createFlatScreenTitleText }}
       />
       <Stack.Screen
-        name="joinFlat"
+        name="JoinFlat"
         component={JoinFlat}
         options={{ title: joinFlatScreenTitleText }}
-      />
-      <Stack.Screen
-        name="flatMates"
-        component={FlatMates}
-        options={{ title: flatmatesText }}
       />
     </Stack.Navigator>
   );
