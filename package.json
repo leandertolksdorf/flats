@@ -11,8 +11,6 @@
     "generate-types": "source .env && npx openapi-typescript $SUPABASE_URL/rest/v1/?apikey=$SUPABASE_KEY --output types/supabase.ts"
   },
   "dependencies": {
-    "@expo-google-fonts/nunito": "^0.2.0",
-    "@expo-google-fonts/poppins": "^0.2.0",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/elements": "^1.2.1",
