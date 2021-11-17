@@ -10,7 +10,7 @@ import {
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
 import { HomeStackEditFlatScreenProps } from "navigation/Home";
-import React, { useState } from "react";
+import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Alert } from "react-native";
 import Screen from "../../../components/Screen";
@@ -30,7 +30,6 @@ const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
   const {
     control,
     handleSubmit,
-    setError,
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
@@ -47,9 +46,6 @@ const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
       Alert.alert(genericErrorText);
     }
   });
-
-  const [name, setName] = useState(flat?.name);
-  const [city, setCity] = useState(flat?.city);
 
   return (
     <Screen>
