@@ -23,7 +23,7 @@ const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
         {/* CONTENT */}
         <View
           style={tailwind(
-            "bg-primary-200 rounded-t-2xl border-secondary-500 border-t-8 overflow-hidden flex-1"
+            "bg-primary-200 rounded-t-2xl border-secondary-500 overflow-hidden flex-1"
           )}
         >
           <ScrollView style={tailwind("pt-3 flex-1")}>{children}</ScrollView>

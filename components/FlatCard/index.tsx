@@ -55,38 +55,15 @@ const FlatCard = ({ navigation }: any) => {
   return (
     <CardList
       title={flatCardHeadingText}
-      images={FlatmatesAvatars}
-      onPressImage={() => {}}
+      actionText="Bearbeiten"
+      onPressAction={() => {}}
     >
-      <Card
-        title={nameText}
-        editable
-        onChangeText={setFlatName}
-        onEndEditing={() =>
-          updateFlat({
-            name: flatName,
-          })
-        }
-        value={flatName}
-        icon={"pencil"}
-      />
-      <Card
-        title={cityText}
-        editable
-        onChangeText={setFlatCity}
-        onEndEditing={() =>
-          updateFlat({
-            city: flatCity,
-          })
-        }
-        value={flatCity}
-        icon={"pencil"}
-      >
+      <Card title={nameText} value={flatName} />
+      <Card title={cityText} value={flatCity}>
         <Text style={tailwind("text-xl")}>{flat?.city}</Text>
       </Card>
       <Card
         title={inviteText}
-        icon={"share"}
         value={inviteCode || generateInviteCodeText}
         onPress={handleInvite}
       ></Card>

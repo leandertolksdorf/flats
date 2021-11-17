@@ -31,23 +31,13 @@ const AccountCard = () => {
   };
   return (
     <>
-      <CardList title={accountCardHeadingText}>
-        <Card
-          editable
-          title={nameText}
-          icon="pencil"
-          value={firstName}
-          onChangeText={setFirstName}
-          onEndEditing={() => updateProfile()}
-        />
-        <Card
-          editable
-          title={emailText}
-          icon="pencil"
-          value={email}
-          onChangeText={setEmail}
-          onEndEditing={() => updateUser({ email: email })}
-        />
+      <CardList
+        title={accountCardHeadingText}
+        actionText="Bearbeiten"
+        onPressAction={() => {}}
+      >
+        <Card title={nameText} value={firstName} />
+        <Card title={emailText} value={email} />
       </CardList>
       <Button text title="Abmelden" onPress={handleSignOut}>
         {signOutText}
