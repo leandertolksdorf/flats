@@ -6,28 +6,24 @@ import {
   flatNameRequiredErrorText,
   flatNameText,
   genericErrorText,
+  saveSuccessText,
   saveText,
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
 import { HomeStackEditFlatScreenProps } from "navigation/Home";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Alert } from "react-native";
 import { definitions } from "types/supabase";
 import Screen from "../../../components/Screen";
 import useStore from "../../../store";
 
-// type FormData = {
-//   name: string;
-//   city: string;
-// };
-
 type FormData = Partial<definitions["flats"]>;
 
 const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
-  const [flat, updateFlat] = useStore((state) => [
+  const [flat, updateFlat, showSnackbar] = useStore((state) => [
     state.flat,
     state.updateFlat,
+    state.showSnackbar,
   ]);
 
   const {
@@ -45,8 +41,12 @@ const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
     try {
       await updateFlat(data);
       navigation.navigate("Home");
+      showSnackbar({
+        message: saveSuccessText,
+        type: "success",
+      });
     } catch {
-      Alert.alert(genericErrorText);
+      showSnackbar({ message: genericErrorText, type: "error" });
     }
   });
 

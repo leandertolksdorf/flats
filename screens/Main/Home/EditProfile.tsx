@@ -4,13 +4,13 @@ import {
   flatNameRequiredErrorText,
   genericErrorText,
   nameText,
+  saveSuccessText,
   saveText,
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
 import { HomeStackEditFlatScreenProps } from "navigation/Home";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Alert } from "react-native";
 import { definitions } from "types/supabase";
 import Screen from "../../../components/Screen";
 import useStore from "../../../store";
@@ -18,9 +18,10 @@ import useStore from "../../../store";
 type FormData = Partial<definitions["profiles"]>;
 
 const EditProfile = ({ navigation }: HomeStackEditFlatScreenProps) => {
-  const [profile, updateProfile] = useStore((state) => [
+  const [profile, updateProfile, showSnackbar] = useStore((state) => [
     state.profile,
     state.updateProfile,
+    state.showSnackbar,
   ]);
 
   const {
@@ -36,9 +37,10 @@ const EditProfile = ({ navigation }: HomeStackEditFlatScreenProps) => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       await updateProfile(data);
+      showSnackbar({ message: saveSuccessText, type: "success" });
       navigation.navigate("Home");
     } catch {
-      Alert.alert(genericErrorText);
+      showSnackbar({ message: genericErrorText, type: "error" });
     }
   });
 
