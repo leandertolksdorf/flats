@@ -11,6 +11,7 @@ const Text = (props: any) => {
           props.style?.fontWeight !== "700"
             ? "BerlinType-Regular"
             : "BerlinType-Bold",
+        fontWeight: null,
       }}
     ></RNText>
   );

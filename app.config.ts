@@ -18,6 +18,7 @@ export default {
     },
     assetBundlePatterns: ["**/*"],
     ios: {
+      buildNumber: "2",
       bundleIdentifier: "com.farbigmedia.flats",
       supportsTablet: true,
     },

@@ -1,7 +1,7 @@
+import { useFonts } from "@expo-google-fonts/poppins";
 import { NavigationContainer } from "@react-navigation/native";
 import Snackbar from "components/Snackbar";
 import AppLoading from "expo-app-loading";
-import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import supabase from "lib/supabase";
 import { NavigationTheme } from "lib/themes";
@@ -44,7 +44,7 @@ const UserContainer = () => {
 
 export default function App() {
   // Set defalult font
-  let [fontsLoaded] = useFonts({
+  let [fontsLoaded, error] = useFonts({
     "BerlinType-Regular": require("./assets/fonts/BerlinType-Regular.otf"),
     "BerlinType-Bold": require("./assets/fonts/BerlinType-Bold.otf"),
   });
