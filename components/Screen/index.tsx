@@ -21,11 +21,7 @@ const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
         {/* HERO */}
         {hero && <View style={tailwind("px-3 pb-2")}>{hero()}</View>}
         {/* CONTENT */}
-        <View
-          style={tailwind(
-            "bg-primary-200 rounded-t-2xl border-secondary-500 overflow-hidden flex-1"
-          )}
-        >
+        <View style={tailwind("bg-primary-200 overflow-hidden flex-1")}>
           <ScrollView style={tailwind("pt-3 flex-1")}>{children}</ScrollView>
         </View>
       </LinearGradient>
