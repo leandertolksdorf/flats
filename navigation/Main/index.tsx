@@ -7,7 +7,7 @@ import { BottomTabNavigatorScreenOptions } from "lib/themes";
 import HomeStack from "navigation/Home";
 import React from "react";
 
-type MainTabParamList = {
+export type MainTabParamList = {
   HomeTab: undefined;
 };
 

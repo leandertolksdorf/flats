@@ -8,8 +8,10 @@ import {
 } from "@react-navigation/native";
 import { StackNavigationOptions } from "@react-navigation/stack";
 import { LinearGradient } from "expo-linear-gradient";
+import { MainTabParamList } from "navigation/Main";
 import React from "react";
 import { getColor, tailwind } from "./tailwind";
+
 export const NavigationTheme: Theme = {
   ...DefaultTheme,
   colors: {
@@ -62,10 +64,8 @@ export const BottomTabNavigatorScreenOptions: (props: {
     />
   ),
   tabBarIcon: ({ focused, color, size }) => {
-    const iconNames = {
-      homeTab: "home",
-      tasks: "tasks",
-      finance: "money-bill-wave",
+    const iconNames: { [Property in keyof MainTabParamList]: string } = {
+      HomeTab: "home",
     };
     return (
       <FontAwesome5
