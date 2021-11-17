@@ -1,12 +1,6 @@
-import { Button, Input, Text } from "components";
+import { Button, Input } from "components";
 import Padding from "components/Padding";
-import {
-  cityText,
-  createFlatHeadingText,
-  createFlatText,
-  flatNameText,
-} from "constants/strings";
-import { tailwind } from "lib/tailwind";
+import { cityText, createFlatText, flatNameText } from "constants/strings";
 import { HomeStackCreateFlatScreenProps } from "navigation/Home";
 import React from "react";
 import Screen from "../../../components/Screen";
@@ -27,9 +21,6 @@ const CreateFlat = ({ navigation }: HomeStackCreateFlatScreenProps) => {
   return (
     <Screen>
       <Padding>
-        <Text style={tailwind("text-3xl font-bold pb-3")}>
-          {createFlatHeadingText}
-        </Text>
         <Input
           label={flatNameText}
           value={flatForm.flatName}
