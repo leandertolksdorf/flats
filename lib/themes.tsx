@@ -6,7 +6,10 @@ import {
   RouteProp,
   Theme,
 } from "@react-navigation/native";
-import { StackNavigationOptions } from "@react-navigation/stack";
+import {
+  StackNavigationOptions,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import { LinearGradient } from "expo-linear-gradient";
 import { MainTabParamList } from "navigation/Main";
 import React from "react";
@@ -46,6 +49,7 @@ export const StackNavigatorScreenOptions: StackNavigationOptions = {
       style={tailwind("mx-2")}
     />
   ),
+  ...TransitionPresets.SlideFromRightIOS,
 };
 
 export const BottomTabNavigatorScreenOptions: (props: {
