@@ -14,6 +14,7 @@ import {
   signUpText,
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
+import { SetupStackSignUpScreenProps } from "navigation/Setup";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import validator from "validator";
@@ -26,7 +27,7 @@ type FormData = {
   password_confirmation: string;
   first_name: string;
 };
-const SetupSignUp = ({ navigation }: { navigation: any }) => {
+const SetupSignUp = ({ navigation }: SetupStackSignUpScreenProps) => {
   const signUp = useStore((state) => state.signUp);
 
   const {

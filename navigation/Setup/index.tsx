@@ -1,4 +1,7 @@
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackScreenProps,
+} from "@react-navigation/stack";
 import {
   signInScreenTitleText,
   signUpScreenTitleText,
@@ -8,27 +11,46 @@ import { StackNavigatorScreenOptions } from "lib/themes";
 import React from "react";
 import SetupSignIn from "screens/Setup/SetupSignIn";
 import SetupSignUp from "screens/Setup/SetupSignUp";
-import SetupAuth from "../../screens/Setup/SetupAuth";
+import SetupAuth from "../../screens/Setup/SetupStart";
 
-const Stack = createStackNavigator();
+type SetupStackParamList = {
+  Start: undefined;
+  SignIn: undefined;
+  SignUp: undefined;
+};
+
+export type SetupStackStartScreenProps = StackScreenProps<
+  SetupStackParamList,
+  "Start"
+>;
+export type SetupStackSignInScreenProps = StackScreenProps<
+  SetupStackParamList,
+  "SignIn"
+>;
+export type SetupStackSignUpScreenProps = StackScreenProps<
+  SetupStackParamList,
+  "SignUp"
+>;
+
+const Stack = createStackNavigator<SetupStackParamList>();
 
 const SetupStack = () => {
   return (
     <Stack.Navigator screenOptions={StackNavigatorScreenOptions}>
       <Stack.Screen
-        name="auth"
+        name="Start"
         component={SetupAuth}
         options={{
           title: welcomeScreenTitleText,
         }}
       />
       <Stack.Screen
-        name="signIn"
+        name="SignIn"
         component={SetupSignIn}
         options={{ title: signInScreenTitleText }}
       />
       <Stack.Screen
-        name="signUp"
+        name="SignUp"
         component={SetupSignUp}
         options={{ title: signUpScreenTitleText }}
       />

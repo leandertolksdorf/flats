@@ -10,6 +10,7 @@ import {
   signInText,
 } from "constants/strings";
 import { tailwind } from "lib/tailwind";
+import { SetupStackSignInScreenProps } from "navigation/Setup";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import validator from "validator";
@@ -21,7 +22,7 @@ type FormData = {
   password: string;
 };
 
-const SetupSignIn = ({ navigation }: { navigation: any }) => {
+const SetupSignIn = ({ navigation }: SetupStackSignInScreenProps) => {
   const signIn = useStore((state) => state.signIn);
 
   const {
