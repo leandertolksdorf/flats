@@ -19,6 +19,7 @@ export const flatmatesText = "Mitglieder";
 export const inviteText = "Einladen";
 export const saveText = "Speichern";
 export const generateInviteCodeText = "Code generieren";
+export const editProfileText = "Profil bearbeiten";
 
 /**
  * Error messages
@@ -83,5 +84,6 @@ export const homeScreenTitleText = "Home";
 export const joinFlatScreenTitleText = "Beitreten";
 export const createFlatScreenTitleText = "Erstellen";
 export const editFlatScreenTitleText = "WG bearbeiten";
+export const editProfileScreenTitleText = "Profil bearbeiten";
 export const tasksTabLabelText = "Aufgaben";
 export const financeTabLabelText = "Finanzen";

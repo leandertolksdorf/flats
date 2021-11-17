@@ -5,6 +5,7 @@ import {
 import {
   createFlatScreenTitleText,
   editFlatScreenTitleText,
+  editProfileScreenTitleText,
   homeScreenTitleText,
   joinFlatScreenTitleText,
 } from "constants/strings";
@@ -12,6 +13,7 @@ import { StackNavigatorScreenOptions } from "lib/themes";
 import React from "react";
 import CreateFlat from "screens/Main/Home/CreateFlat";
 import EditFlat from "screens/Main/Home/EditFlat";
+import EditProfile from "screens/Main/Home/EditProfile";
 import MainHome from "screens/Main/Home/Home";
 import JoinFlat from "screens/Main/Home/JoinFlat";
 
@@ -20,6 +22,7 @@ type HomeStackParamList = {
   CreateFlat: undefined;
   JoinFlat: undefined;
   EditFlat: undefined;
+  EditProfile: undefined;
 };
 
 export type HomeStackHomeScreenProps = StackScreenProps<
@@ -37,6 +40,10 @@ export type HomeStackJoinFlatScreenProps = StackScreenProps<
 export type HomeStackEditFlatScreenProps = StackScreenProps<
   HomeStackParamList,
   "EditFlat"
+>;
+export type HomeStackEditProfileScreenProps = StackScreenProps<
+  HomeStackParamList,
+  "EditProfile"
 >;
 
 const Stack = createStackNavigator<HomeStackParamList>();
@@ -63,6 +70,11 @@ const HomeStack = () => {
         name="EditFlat"
         component={EditFlat}
         options={{ title: editFlatScreenTitleText }}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{ title: editProfileScreenTitleText }}
       />
     </Stack.Navigator>
   );
