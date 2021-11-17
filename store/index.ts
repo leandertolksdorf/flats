@@ -4,10 +4,6 @@ import create from "zustand";
 import supabase from "../lib/supabase";
 
 type State = {
-  // UI state
-  snackbarMessage: string;
-  snackbarVisible: boolean;
-  showSnackbar: (message: string) => void;
   // All
   clearAll: () => void;
   fetchAll: () => void;
@@ -54,12 +50,6 @@ type State = {
 };
 
 const useStore = create<State>((set, get) => ({
-  snackbarMessage: "",
-  snackbarVisible: false,
-  showSnackbar: (message: string) => {
-    set({ snackbarMessage: message, snackbarVisible: true });
-    setTimeout(() => set({ snackbarVisible: false }), 5000);
-  },
   clearAll: () => {
     set({
       profile: null,
@@ -137,7 +127,6 @@ const useStore = create<State>((set, get) => ({
 
     console.log("Update Flat:", data, "Error:", error);
     await get().fetchFlat();
-    get().showSnackbar("Gespeichert!");
   },
   // Flatmates
   flatmates: [],
