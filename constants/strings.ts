@@ -41,7 +41,10 @@ export const emailRequiredErrorText = "E-Mail ist ein Pflichtfeld";
 export const flatNameRequiredErrorText = "WG-Name ist ein Pflichtfeld";
 export const flatCityRequiredErrorText = "Stadt ist ein Pflichtfeld";
 export const genericErrorText = "Fehler";
-
+export const invalidJoinShortcodeErrorText = "WG-Code ungültig";
+export const joinShortcodeValidatorErrorText =
+  "Der WG-Code besteht aus 6 Zeichen";
+export const joinShortcodeRequiredErrorText = "WG-Code ist ein Pflichtfeld";
 /**
  * Longer strings
  */

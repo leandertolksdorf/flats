@@ -237,6 +237,9 @@ const useStore = create<State>((set, get) => ({
       .from<definitions["invitations"]>("invitations")
       .select("flat_id")
       .eq("shortcode", shortcode);
+    if (invitation_data?.length === 0) {
+      throw Error("Invitation does not exist");
+    }
     const flat_id = invitation_data![0].flat_id;
     const { data: profile_data, error: profile_error } = await supabase
       .from<definitions["profiles"]>("profiles")
