@@ -39,7 +39,8 @@
     "tailwind-rn": "^3.0.1",
     "tailwindcss": "^2.2.19",
     "validator": "^13.7.0",
-    "zustand": "^3.6.3"
+    "zustand": "^3.6.3",
+    "@react-native-picker/picker": "2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

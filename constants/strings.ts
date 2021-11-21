@@ -97,5 +97,7 @@ export const editProfileScreenTitleText = "Profil bearbeiten";
 
 export const tasksTabLabelText = "Aufgaben";
 export const tasksScreenTitleText = "Aufgaben";
+export const createTaskScreenTitleText = "Aufgabe erstellen";
+export const editTaskScreenTitleText = "Aufgabe bearbeiten";
 
 export const financeTabLabelText = "Finanzen";
