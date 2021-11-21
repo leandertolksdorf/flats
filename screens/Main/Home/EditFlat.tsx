@@ -109,11 +109,7 @@ const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
           )}
         />
         <Button onPress={onSubmit}>{saveText}</Button>
-        <Button
-          text
-          textStyle={tailwind("text-red-600")}
-          onPress={handleLeaveFlat}
-        >
+        <Button text onPress={handleLeaveFlat}>
           {leaveFlatText}
         </Button>
         {errors.name?.type === "required" && (
