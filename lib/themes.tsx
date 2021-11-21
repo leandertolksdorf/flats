@@ -58,7 +58,7 @@ export const BottomTabNavigatorScreenOptions: (props: {
 }) => BottomTabNavigationOptions = ({ route }) => ({
   headerShown: false,
   tabBarActiveTintColor: getColor("secondary-500"),
-  tabBarInactiveTintColor: getColor("primary-800"),
+  tabBarInactiveTintColor: getColor("primary-100"),
   tabBarStyle: tailwind("border-0"),
   tabBarBackground: () => (
     <LinearGradient
@@ -71,6 +71,7 @@ export const BottomTabNavigatorScreenOptions: (props: {
   tabBarIcon: ({ focused, color, size }) => {
     const iconNames: { [Property in keyof MainTabParamList]: string } = {
       HomeTab: "home",
+      TasksTab: "tasks",
     };
     return (
       <FontAwesome5
