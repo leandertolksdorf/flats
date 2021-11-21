@@ -19,8 +19,6 @@ const Home = ({ navigation }: HomeStackHomeScreenProps) => {
     state.updateFlat,
   ]);
 
-  console.log("FLAT ", flat);
-
   return (
     <Screen scroll hero={() => <Header />}>
       {flat !== null ? (

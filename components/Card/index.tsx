@@ -26,7 +26,7 @@ const Card = ({ title, value, children, ...props }: any) => {
             "flex flex-row flex-wrap justify-between items-center"
           )}
         >
-          <Text style={tailwind("text-xl flex-none text-primary-500 mx-4")}>
+          <Text style={tailwind("text-xl flex-none text-primary-800 mx-4")}>
             {title}
           </Text>
           <View
@@ -36,7 +36,7 @@ const Card = ({ title, value, children, ...props }: any) => {
           </View>
           {props.onPress ? (
             <View style={tailwind("flex-row w-4 justify-center items-center")}>
-              <FontAwesome name={"chevron-right"} size={12} />
+              <FontAwesome name={"chevron-right"} size={10} />
             </View>
           ) : null}
         </View>

@@ -33,7 +33,8 @@ export const StackNavigatorScreenOptions: StackNavigationOptions = {
   headerBackground: () => (
     <LinearGradient
       style={tailwind("w-full h-full")}
-      colors={[getColor("primary-900"), getColor("primary-500")]}
+      // colors={[getColor("gray-900"), getColor("gray-800")]}
+      colors={[getColor("primary-900"), getColor("primary-700")]}
       start={[0, 1]}
       end={[1, 0]}
     />
@@ -45,8 +46,8 @@ export const StackNavigatorScreenOptions: StackNavigationOptions = {
     <FontAwesome5
       name="arrow-circle-left"
       color={getColor("secondary-500")}
-      size={22}
-      style={tailwind("mx-2")}
+      // size={22}
+      style={tailwind("text-xl ml-4 mr-1")}
     />
   ),
   // cardOverlay: () => <View style={tailwind("flex-1 bg-black")} />,
@@ -63,7 +64,8 @@ export const BottomTabNavigatorScreenOptions: (props: {
   tabBarBackground: () => (
     <LinearGradient
       style={tailwind("w-full h-full")}
-      colors={[getColor("primary-900"), getColor("primary-500")]}
+      // colors={[getColor("gray-900"), getColor("gray-800")]}
+      colors={[getColor("primary-900"), getColor("primary-700")]}
       start={[0, 0]}
       end={[1, 0]}
     />

@@ -4,8 +4,7 @@ import {
   daytimeGreetingText,
   greetingHeadingWithNameText,
 } from "constants/strings";
-import { LinearGradient } from "expo-linear-gradient";
-import { getColor, tailwind } from "lib/tailwind";
+import { tailwind } from "lib/tailwind";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import useStore from "store";
@@ -22,37 +21,31 @@ const Header = () => {
   );
 
   return (
-    <LinearGradient
-      style={tailwind("w-full")}
-      colors={[getColor("primary-900"), getColor("primary-500")]}
-      start={[0, 0]}
-      end={[1, 0]}
-    >
-      <View>
-        <TouchableOpacity
-          style={tailwind(
-            "mb-2 p-3 bg-black bg-opacity-30 flex-row items-center rounded-xl justify-between"
-          )}
-          onPress={() => {
-            updateProfile({
-              avatar_seed: Math.random(),
-            });
-          }}
-        >
-          <View>
-            <Text style={tailwind("text-2xl font-bold text-white")}>
-              {greetingHeadingWithNameText(profile?.first_name)}
-            </Text>
-            <Text style={tailwind("text-2xl text-white")}>
-              {daytimeGreetingText()}
-            </Text>
-          </View>
-          <View style={tailwind("ml-2")}>
-            <Avatar seed={profile?.avatar_seed || ""} size={16} round />
-          </View>
-        </TouchableOpacity>
+    <View>
+      <TouchableOpacity
+        style={tailwind(
+          "mb-2 p-3 bg-black bg-opacity-30 flex-row items-center rounded-xl justify-between"
+        )}
+        onPress={() => {
+          updateProfile({
+            avatar_seed: Math.random(),
+          });
+        }}
+      >
+        <View>
+          <Text style={tailwind("text-2xl font-bold text-white")}>
+            {greetingHeadingWithNameText(profile?.first_name)}
+          </Text>
+          <Text style={tailwind("text-2xl text-white")}>
+            {daytimeGreetingText()}
+          </Text>
+        </View>
+        <View style={tailwind("ml-2")}>
+          <Avatar seed={profile?.avatar_seed || ""} size={16} round />
+        </View>
+      </TouchableOpacity>
 
-        {/* <TouchableOpacity
+      {/* <TouchableOpacity
           style={tailwind(
             "mb-2 px-3 py-1 bg-yellow-500 rounded-xl flex-row justify-between items-center"
           )}
@@ -67,7 +60,7 @@ const Header = () => {
             style={tailwind("text-lg")}
           />
         </TouchableOpacity> */}
-        {/* <TouchableOpacity
+      {/* <TouchableOpacity
           style={tailwind(
             "mb-2 px-3 py-1 bg-black bg-opacity-30 rounded-xl flex-row justify-between items-center"
           )}
@@ -82,8 +75,7 @@ const Header = () => {
             style={tailwind("text-lg")}
           />
         </TouchableOpacity> */}
-      </View>
-    </LinearGradient>
+    </View>
   );
 };
 export default Header;

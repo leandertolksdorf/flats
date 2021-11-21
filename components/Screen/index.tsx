@@ -14,7 +14,8 @@ const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
     >
       <LinearGradient
         style={tailwind("w-full h-full")}
-        colors={[getColor("primary-900"), getColor("primary-500")]}
+        // colors={[getColor("gray-900"), getColor("gray-800")]}
+        colors={[getColor("primary-900"), getColor("primary-700")]}
         start={[0, 0]}
         end={[1, 0]}
       >
