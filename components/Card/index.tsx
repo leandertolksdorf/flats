@@ -17,18 +17,25 @@ const Card = ({ title, value, children, ...props }: any) => {
     <>
       <Wrapper
         style={{
-          borderBottomWidth: 0.5,
-          ...tailwind("py-2 px-4 bg-primary-100 border-primary-300"),
+          ...tailwind("py-2 bg-primary-100 border-primary-300"),
         }}
         {...props}
       >
-        <View style={tailwind("flex flex-row justify-between items-center")}>
-          <Text style={tailwind("text-xl flex-none text-primary-500 mr-3")}>
+        <View
+          style={tailwind(
+            "flex flex-row flex-wrap justify-between items-center"
+          )}
+        >
+          <Text style={tailwind("text-xl flex-none text-primary-500 mx-4")}>
             {title}
           </Text>
-          <View style={tailwind("flex-1 items-end")}>{children}</View>
+          <View
+            style={tailwind(`flex-1 items-end ${props.onPress ? "" : "mx-4"}`)}
+          >
+            {children}
+          </View>
           {props.onPress ? (
-            <View style={tailwind("flex-none ml-3")}>
+            <View style={tailwind("flex-row w-4 justify-center items-center")}>
               <FontAwesome name={"chevron-right"} size={12} />
             </View>
           ) : null}

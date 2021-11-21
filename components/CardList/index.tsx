@@ -29,7 +29,7 @@ const CardList = ({
       </View>
       <View
         style={{
-          borderTopWidth: 0.5,
+          borderWidth: 0.5,
           ...tailwind("border-primary-300"),
         }}
       >

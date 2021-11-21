@@ -8,6 +8,7 @@ const LoadingScreen = () => (
     <ImageBackground
       source={splash}
       style={tailwind("w-full h-full")}
+      resizeMode="cover"
     ></ImageBackground>
   </View>
 );

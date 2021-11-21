@@ -16,11 +16,7 @@ const Input = (props: any) => {
   };
   const focus = () => inputRef.current?.focus();
   return (
-    <View
-      style={tailwind(
-        "py-1 pl-3 mb-2 bg-primary-100 border-primary-800 border rounded flex-row"
-      )}
-    >
+    <View style={tailwind("py-1 pl-3 mb-2 bg-primary-100 rounded-lg flex-row")}>
       <View style={tailwind("flex-1")}>
         <TouchableWithoutFeedback onPress={focus}>
           <Text style={tailwind("text-sm font-bold text-primary-800")}>

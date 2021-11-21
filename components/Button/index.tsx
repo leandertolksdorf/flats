@@ -7,8 +7,8 @@ const Button = (props: any) => {
     <TouchableOpacity
       style={tailwind(
         `p-2 mb-2 ${!props.text ? "bg-primary-900" : ""} border-secondary-500 ${
-          !props.text ? "border-b-4" : ""
-        } rounded`
+          !props.text ? "" : ""
+        } rounded-lg`
       )}
       {...props}
     >
