@@ -26,6 +26,7 @@ const Input = (props: any) => {
             ref={inputRef}
             style={tailwind("text-2xl pb-1 font-medium text-primary-800")}
             placeholderTextColor={getColor("primary-400")}
+            autoCorrect={false}
             {...props}
           ></TextInput>
         </TouchableWithoutFeedback>
