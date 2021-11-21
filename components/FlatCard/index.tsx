@@ -66,10 +66,10 @@ const FlatCard = () => {
         <View style={tailwind("flex-row")}>{FlatmatesAvatars}</View>
       </Card>
       <Card title={nameText}>
-        <Text style={tailwind("text-xl")}>{flat.name}</Text>
+        <Text style={tailwind("text-xl")}>{flat?.name}</Text>
       </Card>
       <Card title={cityText}>
-        <Text style={tailwind("text-xl")}>{flat.city}</Text>
+        <Text style={tailwind("text-xl")}>{flat?.city}</Text>
       </Card>
       <Card title={inviteText} onPress={handleInvite}>
         <Text style={tailwind("text-xl")}>
