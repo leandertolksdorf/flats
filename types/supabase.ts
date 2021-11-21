@@ -362,6 +362,108 @@ export interface paths {
       };
     };
   };
+  "/tasks": {
+    get: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.tasks.id"];
+          frequency?: parameters["rowFilter.tasks.frequency"];
+          date?: parameters["rowFilter.tasks.date"];
+          assigned_to?: parameters["rowFilter.tasks.assigned_to"];
+          interval?: parameters["rowFilter.tasks.interval"];
+          name?: parameters["rowFilter.tasks.name"];
+          /** Filtering Columns */
+          select?: parameters["select"];
+          /** Ordering */
+          order?: parameters["order"];
+          /** Limiting and Pagination */
+          offset?: parameters["offset"];
+          /** Limiting and Pagination */
+          limit?: parameters["limit"];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters["range"];
+          /** Limiting and Pagination */
+          "Range-Unit"?: parameters["rangeUnit"];
+          /** Preference */
+          Prefer?: parameters["preferCount"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions["tasks"][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** tasks */
+          tasks?: definitions["tasks"];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters["select"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.tasks.id"];
+          frequency?: parameters["rowFilter.tasks.frequency"];
+          date?: parameters["rowFilter.tasks.date"];
+          assigned_to?: parameters["rowFilter.tasks.assigned_to"];
+          interval?: parameters["rowFilter.tasks.interval"];
+          name?: parameters["rowFilter.tasks.name"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.tasks.id"];
+          frequency?: parameters["rowFilter.tasks.frequency"];
+          date?: parameters["rowFilter.tasks.date"];
+          assigned_to?: parameters["rowFilter.tasks.assigned_to"];
+          interval?: parameters["rowFilter.tasks.interval"];
+          name?: parameters["rowFilter.tasks.name"];
+        };
+        body: {
+          /** tasks */
+          tasks?: definitions["tasks"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
   "/rpc/handle_new_user": {
     post: {
       parameters: {
@@ -597,6 +699,22 @@ export interface definitions {
      */
     flat_id?: string;
   };
+  tasks: {
+    /**
+     * Note:
+     * This is a Primary Key.<pk/>
+     */
+    id: number;
+    frequency?: number;
+    date: string;
+    /**
+     * Note:
+     * This is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>
+     */
+    assigned_to?: string;
+    interval?: "daily" | "weekly" | "monthly";
+    name?: string;
+  };
 }
 
 export interface parameters {
@@ -666,6 +784,14 @@ export interface parameters {
   "rowFilter.profiles.first_name": string;
   "rowFilter.profiles.avatar_seed": string;
   "rowFilter.profiles.flat_id": string;
+  /** tasks */
+  "body.tasks": definitions["tasks"];
+  "rowFilter.tasks.id": string;
+  "rowFilter.tasks.frequency": string;
+  "rowFilter.tasks.date": string;
+  "rowFilter.tasks.assigned_to": string;
+  "rowFilter.tasks.interval": string;
+  "rowFilter.tasks.name": string;
 }
 
 export interface operations {}
