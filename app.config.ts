@@ -7,9 +7,9 @@ export default {
     owner: "farbigmedia",
     version: "0.1.2",
     orientation: "portrait",
-    icon: "./assets/icon.png",
+    icon: "./src/assets/icon.png",
     splash: {
-      image: "./assets/splash.png",
+      image: "./src/assets/splash.png",
       resizeMode: "contain",
       backgroundColor: "#ffffff",
     },
@@ -25,14 +25,14 @@ export default {
     android: {
       package: "com.farbigmedia.flats",
       adaptiveIcon: {
-        foregroundImage: "./assets/icon.png",
+        foregroundImage: "./src/assets/icon.png",
         backgroundColor: "#FFFFFF",
       },
       permissions: [],
       versionCode: 5,
     },
     web: {
-      favicon: "./assets/favicon.png",
+      favicon: "./src/assets/favicon.png",
     },
     extra: {
       SUPABASE_URL: process.env.SUPABASE_URL as string,

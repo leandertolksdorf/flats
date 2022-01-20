@@ -12,17 +12,5 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "lib/*": ["./lib/*"],
-      "components/*": ["./components/*"],
-      "screens/*": ["./screens/*"],
-      "navigation/*": ["./navigation/*"],
-      "store/*": ["./store/*"],
-      "config/*": ["./config/*"],
-      "assets/*": ["./assets/*"],
-      "constants/*" : ["./constants/*"],
-      "util/*": ["./util/*"]
-    }
   }
 }
