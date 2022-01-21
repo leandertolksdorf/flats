@@ -13,7 +13,7 @@ const Button = (props: any) => {
           "mb-2",
           "rounded-lg",
           "overflow-hidden",
-          !props.text && "bg-indigo-200"
+          !props.text && "bg-indigo-300"
         )
       )}
       {...props}

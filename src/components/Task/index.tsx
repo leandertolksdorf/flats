@@ -1,4 +1,5 @@
 import { FontAwesome5 } from "@expo/vector-icons";
+import classNames from "classnames";
 import React from "react";
 import { View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -17,13 +18,12 @@ const Task = (props: { task: definitions["tasks"] }) => {
   return (
     <View
       style={tailwind(
-        `${
-          isPassed
-            ? "bg-red-600 border border-red-600"
-            : isToday
-            ? "bg-purple-600 border border-purple-600"
-            : "bg-primary-800 border border-primary-800"
-        } mb-2 rounded-xl overflow-hidden`
+        classNames(
+          isToday || (isPassed && "bg-red-400"),
+          "mb-2",
+          "rounded-xl",
+          "overflow-hidden"
+        )
       )}
     >
       <View style={tailwind("flex-row justify-between")}>
@@ -34,10 +34,10 @@ const Task = (props: { task: definitions["tasks"] }) => {
           {moment().to(task_date)}
         </Text>
       </View>
-      <View style={tailwind("bg-primary-100 p-3")}>
+      <View style={tailwind("bg-white p-3")}>
         <View style={tailwind("flex-row justify-between mb-2")}>
           <Text style={tailwind("text-xl font-bold")}>{props.task.name}</Text>
-          <Text style={tailwind("text-xl text-primary-400")}>
+          <Text style={tailwind("text-xl text-indigo-800")}>
             {intervalText(props.task.frequency, props.task.interval)}
           </Text>
         </View>
@@ -69,7 +69,7 @@ const Task = (props: { task: definitions["tasks"] }) => {
           <View style={tailwind("flex-1")}>
             <TouchableOpacity
               style={tailwind(
-                "flex-row items-center justify-center rounded-xl bg-green-200 h-10 border border-green-500"
+                "flex-row items-center justify-center rounded-xl bg-green-200 h-10"
               )}
             >
               <FontAwesome5

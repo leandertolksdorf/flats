@@ -14,6 +14,8 @@ import * as React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CreateOrEditTask from "../../screens/Main/Tasks/CreateOrEditTask";
 import Tasks from "../../screens/Main/Tasks/Tasks";
+import { useTheme } from "@react-navigation/native";
+import { NavigationTheme } from "../../types/navigationTheme";
 type TasksStackParamList = {
   Tasks: undefined;
   CreateOrEditTask: {
@@ -35,8 +37,10 @@ const Stack = createStackNavigator<TasksStackParamList>();
 
 const TasksStack = () => {
   const tailwind = useTailwind();
+  const { stackNavigatorScreenOptions } = useTheme() as NavigationTheme;
+
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={stackNavigatorScreenOptions}>
       <Stack.Screen
         name="Tasks"
         component={Tasks}

@@ -16,6 +16,13 @@ import EditFlat from "../../screens/Main/Home/EditFlat";
 import EditProfile from "../../screens/Main/Home/EditProfile";
 import MainHome from "../../screens/Main/Home/Home";
 import JoinFlat from "../../screens/Main/Home/JoinFlat";
+import tailwindConfig from "../../../tailwind.config";
+import { useTailwind } from "tailwind-rn/dist";
+import Text from "../../components/Text";
+import classNames from "classnames";
+import { View } from "react-native";
+import { useTheme } from "@react-navigation/native";
+import { NavigationTheme } from "../../types/navigationTheme";
 
 type HomeStackParamList = {
   Home: undefined;
@@ -49,8 +56,10 @@ export type HomeStackEditProfileScreenProps = StackScreenProps<
 const Stack = createStackNavigator<HomeStackParamList>();
 
 const HomeStack = () => {
+  const tailwind = useTailwind();
+  const { stackNavigatorScreenOptions } = useTheme() as NavigationTheme;
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={stackNavigatorScreenOptions}>
       <Stack.Screen
         name="Home"
         component={MainHome}

@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React from "react";
+import React, { ReactNode } from "react";
 import { TouchableOpacity, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
 import Text from "../../components/Text";
@@ -23,20 +23,44 @@ const CardList = ({
         <TouchableOpacity
           onPress={handleActionPress}
           style={tailwind(
-            classNames("bg-indigo-100", "rounded-lg", "-mr-2", "px-2")
+            classNames("bg-indigo-100", "rounded-full", "-mr-2", "px-3")
           )}
         >
-          <Text style={tailwind(classNames("text-lg", "text-indigo-900"))}>
+          <Text
+            style={tailwind(
+              classNames("text-lg", "text-indigo-900", "font-bold")
+            )}
+          >
             {actionText}
           </Text>
         </TouchableOpacity>
       </View>
       <View
         style={{
-          ...tailwind(""),
+          ...tailwind("bg-white"),
         }}
       >
-        {props.children}
+        {props.children.map((child: ReactNode, i: number) => (
+          <View key={i} style={tailwind("relative")}>
+            {i !== 0 && (
+              <View
+                style={tailwind(
+                  classNames(
+                    "w-full",
+                    "ml-4",
+                    // "absolute",
+                    // "right-0",
+                    // "top-0",
+                    "h-0",
+                    "border-t",
+                    "border-indigo-100"
+                  )
+                )}
+              />
+            )}
+            {child}
+          </View>
+        ))}
       </View>
     </View>
   );

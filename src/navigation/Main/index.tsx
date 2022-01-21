@@ -7,7 +7,11 @@ import { homeTabLabelText, tasksTabLabelText } from "../../constants/strings";
 import HomeStack from "../../navigation/Home";
 import TasksStack from "../../navigation/Tasks";
 import React from "react";
+import tailwindConfig from "../../../tailwind.config";
+import { useTailwind } from "tailwind-rn/dist";
+import classNames from "classnames";
 
+import { FontAwesome5 } from "@expo/vector-icons";
 export type MainTabParamList = {
   HomeTab: undefined;
   TasksTab: undefined;
@@ -26,8 +30,25 @@ export type MainTabTasksTabProps = BottomTabScreenProps<
 const MainTab = createBottomTabNavigator<MainTabParamList>();
 
 const MainNavigator = () => {
+  const tailwind = useTailwind();
   return (
-    <MainTab.Navigator screenOptions={{ headerShown: false }}>
+    <MainTab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarIcon: ({ color, focused, size }) => {
+          let iconName;
+          switch (route.name) {
+            case "HomeTab":
+              iconName = "home";
+              break;
+            case "TasksTab":
+              iconName = "tasks";
+              break;
+          }
+          return <FontAwesome5 name={iconName} color={color} size={size} />;
+        },
+      })}
+    >
       <MainTab.Screen
         name="HomeTab"
         component={HomeStack}

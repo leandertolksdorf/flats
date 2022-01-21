@@ -12,6 +12,8 @@ import React from "react";
 import SetupAuth from "../../screens/Setup/SetupStart";
 import SetupSignIn from "../../screens/Setup/SetupSignIn";
 import SetupSignUp from "../../screens/Setup/SetupSignUp";
+import { useTheme } from "@react-navigation/native";
+import { NavigationTheme } from "../../types/navigationTheme";
 
 type SetupStackParamList = {
   Start: undefined;
@@ -35,8 +37,10 @@ export type SetupStackSignUpScreenProps = StackScreenProps<
 const Stack = createStackNavigator<SetupStackParamList>();
 
 const SetupStack = () => {
+  const { stackNavigatorScreenOptions } = useTheme() as NavigationTheme;
+
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={stackNavigatorScreenOptions}>
       <Stack.Screen
         name="Start"
         component={SetupAuth}

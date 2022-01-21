@@ -1,4 +1,5 @@
 import { FontAwesome } from "@expo/vector-icons";
+import classNames from "classnames";
 import React, { useRef } from "react";
 import { TextInput, TouchableOpacity, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
@@ -24,7 +25,13 @@ const Card = ({ title, value, children, ...props }: any) => {
       >
         <View
           style={tailwind(
-            "flex flex-row flex-wrap justify-between items-center"
+            classNames(
+              "flex",
+              "flex-row",
+              "flex-wrap",
+              "justify-between",
+              "items-center"
+            )
           )}
         >
           <Text style={tailwind("text-xl font-bold flex-none text-black mx-4")}>

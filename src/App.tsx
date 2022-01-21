@@ -13,6 +13,12 @@ import MainNavigator from "./navigation/Main";
 import SetupStack from "./navigation/Setup";
 import useStore from "./store";
 import utilities from "../tailwind.json";
+import { View } from "react-native";
+import classNames from "classnames";
+import Text from "./components/Text";
+import { StackNavigationOptions } from "@react-navigation/stack";
+import { NavigationTheme } from "./types/navigationTheme";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const UserContainer = () => {
   const [setSession, fetchAll] = useStore((state: any) => [
@@ -44,15 +50,81 @@ const UserContainer = () => {
 
 function FlatsNavigationContainer(props: any) {
   const tailwind = useTailwind();
+
+  const stackNavigatorScreenOptions: StackNavigationOptions = {
+    headerStyle: tailwind(classNames("bg-indigo-200")),
+    headerTitleAlign: "center",
+    headerTitle: (props) => (
+      <View
+        style={tailwind(
+          classNames(
+            "bg-indigo-100",
+            "px-3",
+            "h-8",
+            "rounded-full",
+            "flex",
+            // "items-center",
+            "justify-center"
+          )
+        )}
+      >
+        <Text
+          style={tailwind(
+            classNames("text-lg", "font-bold", "text-indigo-900")
+          )}
+        >
+          {props.children}
+        </Text>
+      </View>
+    ),
+    headerBackTitleVisible: false,
+    headerBackImage: ({ tintColor }) => (
+      <View
+        style={tailwind(
+          classNames(
+            "bg-indigo-100",
+            "w-8",
+            "h-8",
+            "rounded-full",
+            "flex",
+            "justify-center",
+            "items-center",
+            "ml-4"
+          )
+        )}
+      >
+        <FontAwesome5
+          name="arrow-left"
+          size={tailwind("text-lg").fontSize}
+          color={tailwind("text-indigo-900").color}
+        />
+      </View>
+    ),
+    cardStyle: tailwind(classNames("bg-indigo-200", "pt-5")),
+  };
+
+  const theme: NavigationTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: tailwind("text-indigo-600").color as string,
+      card: tailwind("text-indigo-200").color as string,
+      background: tailwind("text-indigo-200").color as string,
+    },
+    stackNavigatorScreenOptions,
+  };
+
   return (
     <NavigationContainer
       theme={{
         ...DefaultTheme,
         colors: {
           ...DefaultTheme.colors,
-          primary: tailwind("text-indigo-500").color,
+          primary: tailwind("text-indigo-600").color,
           card: tailwind("text-indigo-200").color,
+          background: tailwind("text-indigo-200").color,
         },
+        stackNavigatorScreenOptions,
       }}
       {...props}
     />

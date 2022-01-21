@@ -1,5 +1,5 @@
 import { Session, User } from "@supabase/supabase-js";
-import { definitions } from "types/supabase";
+import { definitions } from "../types/supabase";
 import create from "zustand";
 import supabase from "../lib/supabase";
 
@@ -171,6 +171,7 @@ const useStore = create<State>((set, get) => ({
     set({ tasks: data });
   },
   createTask: async (new_task: Partial<definitions["tasks"]>) => {
+    console.log(new_task);
     const { data, error } = await supabase
       .from<definitions["tasks"]>("tasks")
       .insert(new_task);
