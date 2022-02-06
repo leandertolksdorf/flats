@@ -35,11 +35,7 @@ const CardList = ({
           </Text>
         </TouchableOpacity>
       </View>
-      <View
-        style={{
-          ...tailwind("bg-white"),
-        }}
-      >
+      <View style={tailwind("bg-indigo-100")}>
         {props.children.map((child: ReactNode, i: number) => (
           <View key={i} style={tailwind("relative")}>
             {i !== 0 && (
@@ -48,12 +44,9 @@ const CardList = ({
                   classNames(
                     "w-full",
                     "ml-4",
-                    // "absolute",
-                    // "right-0",
-                    // "top-0",
                     "h-0",
                     "border-t",
-                    "border-indigo-100"
+                    "border-indigo-200"
                   )
                 )}
               />
