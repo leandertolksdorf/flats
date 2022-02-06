@@ -1,18 +1,14 @@
 import React from "react";
 import { useTailwind } from "tailwind-rn/dist";
-import AccountCard from "../../../components/AccountCard";
-import Button from "../../../components/Button";
-import FlatCard from "../../../components/FlatCard";
-import Padding from "../../../components/Padding";
-import Screen from "../../../components/Screen";
-import Text from "../../../components/Text";
-import {
-  createFlatText,
-  joinFlatText,
-  noFlatText,
-} from "../../../constants/strings";
-import { HomeStackHomeScreenProps } from "../../../navigation/HomeStack";
-import useStore from "../../../store";
+import AccountCard from "../components/AccountCard";
+import Button from "../components/Button";
+import FlatCard from "../components/FlatCard";
+import Padding from "../components/Padding";
+import Screen from "../components/Screen";
+import Text from "../components/Text";
+import { createFlatText, joinFlatText, noFlatText } from "../constants/strings";
+import { HomeStackHomeScreenProps } from "../navigation/HomeStack";
+import useStore from "../store";
 
 const Home = ({ navigation }: HomeStackHomeScreenProps) => {
   const tailwind = useTailwind();

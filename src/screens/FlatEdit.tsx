@@ -2,11 +2,11 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Alert } from "react-native";
 import { useTailwind } from "tailwind-rn/dist";
-import Button from "../../../components/Button";
-import Input from "../../../components/Input";
-import Text from "../../../components/Text";
-import Padding from "../../../components/Padding";
-import Screen from "../../../components/Screen";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import Text from "../components/Text";
+import Padding from "../components/Padding";
+import Screen from "../components/Screen";
 import {
   cityText,
   flatCityRequiredErrorText,
@@ -19,10 +19,10 @@ import {
   saveSuccessText,
   saveText,
   yesText,
-} from "../../../constants/strings";
-import { HomeStackEditFlatScreenProps } from "../../../navigation/HomeStack";
-import useStore from "../../../store";
-import { definitions } from "../../../types/supabase";
+} from "../constants/strings";
+import { HomeStackEditFlatScreenProps } from "../navigation/HomeStack";
+import useStore from "../store";
+import { definitions } from "../types/supabase";
 
 type FormData = Partial<definitions["flats"]>;
 

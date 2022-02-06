@@ -13,8 +13,8 @@ import {
   editTaskScreenTitleText,
   tasksScreenTitleText,
 } from "../constants/strings";
-import CreateOrEditTask from "../screens/Main/Tasks/CreateOrEditTask";
-import Tasks from "../screens/Main/Tasks/Tasks";
+import CreateOrEditTask from "../screens/TaskEdit";
+import Tasks from "../screens/TasksRoot";
 import { NavigationTheme } from "../types/theme";
 
 type TasksStackParamList = {

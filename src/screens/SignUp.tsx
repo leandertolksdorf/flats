@@ -2,11 +2,11 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTailwind } from "tailwind-rn/dist";
 import validator from "validator";
-import Button from "../../components/Button";
-import Input from "../../components/Input";
-import Padding from "../../components/Padding";
-import Screen from "../../components/Screen";
-import Text from "../../components/Text";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import Padding from "../components/Padding";
+import Screen from "../components/Screen";
+import Text from "../components/Text";
 import {
   emailRequiredErrorText,
   emailText,
@@ -20,9 +20,9 @@ import {
   passwordRequiredErrorText,
   passwordText,
   signUpText,
-} from "../../constants/strings";
-import { SetupStackSignUpScreenProps } from "../../navigation/StartStack";
-import useStore from "../../store";
+} from "../constants/strings";
+import { SetupStackSignUpScreenProps } from "../navigation/StartStack";
+import useStore from "../store";
 
 type FormData = {
   email: string;

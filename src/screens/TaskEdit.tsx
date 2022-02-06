@@ -4,17 +4,13 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
 import { useTailwind } from "tailwind-rn/dist";
-import Button from "../../../components/Button";
-import Input from "../../../components/Input";
-import Padding from "../../../components/Padding";
-import Screen from "../../../components/Screen";
-import Text from "../../../components/Text";
-import {
-  genericErrorText,
-  nameText,
-  saveText,
-} from "../../../constants/strings";
-import useStore from "../../../store";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import Padding from "../components/Padding";
+import Screen from "../components/Screen";
+import Text from "../components/Text";
+import { genericErrorText, nameText, saveText } from "../constants/strings";
+import useStore from "../store";
 
 type FormData = {
   name: string;

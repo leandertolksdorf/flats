@@ -1,16 +1,16 @@
 import React from "react";
 import { useTailwind } from "tailwind-rn/dist";
-import Button from "../../components/Button";
-import Padding from "../../components/Padding";
-import Screen from "../../components/Screen";
-import Text from "../../components/Text";
+import Button from "../components/Button";
+import Padding from "../components/Padding";
+import Screen from "../components/Screen";
+import Text from "../components/Text";
 import {
   signInText,
   signUpText,
   welcomeHeadingText,
   welcomeSubheadingText,
-} from "../../constants/strings";
-import { SetupStackStartScreenProps } from "../../navigation/StartStack";
+} from "../constants/strings";
+import { SetupStackStartScreenProps } from "../navigation/StartStack";
 
 const SetupAuth = ({ navigation }: SetupStackStartScreenProps) => {
   const tailwind = useTailwind();

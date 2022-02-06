@@ -1,15 +1,11 @@
 import React from "react";
-import Button from "../../../components/Button";
-import Input from "../../../components/Input";
-import Padding from "../../../components/Padding";
-import Screen from "../../../components/Screen";
-import {
-  cityText,
-  createFlatText,
-  flatNameText,
-} from "../../../constants/strings";
-import { HomeStackCreateFlatScreenProps } from "../../../navigation/HomeStack";
-import useStore from "../../../store";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import Padding from "../components/Padding";
+import Screen from "../components/Screen";
+import { cityText, createFlatText, flatNameText } from "../constants/strings";
+import { HomeStackCreateFlatScreenProps } from "../navigation/HomeStack";
+import useStore from "../store";
 
 const CreateFlat = ({ navigation }: HomeStackCreateFlatScreenProps) => {
   const [flatForm, setFlatForm, createFlat] = useStore((state) => [

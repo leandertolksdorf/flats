@@ -9,9 +9,9 @@ import {
   signUpScreenTitleText,
   welcomeScreenTitleText,
 } from "../constants/strings";
-import SetupSignIn from "../screens/Setup/SetupSignIn";
-import SetupSignUp from "../screens/Setup/SetupSignUp";
-import SetupAuth from "../screens/Setup/SetupStart";
+import SetupSignIn from "../screens/SignIn";
+import SetupSignUp from "../screens/SignUp";
+import SetupAuth from "../screens/Start";
 import { NavigationTheme } from "../types/theme";
 
 type SetupStackParamList = {

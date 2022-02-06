@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Header from "../../../components/Header";
-import Padding from "../../../components/Padding";
-import Screen from "../../../components/Screen";
-import Task from "../../../components/Task";
-import useStore from "../../../store";
+import Header from "../components/Header";
+import Padding from "../components/Padding";
+import Screen from "../components/Screen";
+import Task from "../components/Task";
+import useStore from "../store";
 
 const Tasks = () => {
   const [tasks] = useStore((state) => [state.tasks]);

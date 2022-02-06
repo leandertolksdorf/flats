@@ -12,11 +12,11 @@ import {
   homeScreenTitleText,
   joinFlatScreenTitleText,
 } from "../constants/strings";
-import CreateFlat from "../screens/Main/Home/CreateFlat";
-import EditFlat from "../screens/Main/Home/EditFlat";
-import EditProfile from "../screens/Main/Home/EditProfile";
-import MainHome from "../screens/Main/Home/Home";
-import JoinFlat from "../screens/Main/Home/JoinFlat";
+import CreateFlat from "../screens/FlatCreate";
+import EditFlat from "../screens/FlatEdit";
+import EditProfile from "../screens/ProfileEdit";
+import MainHome from "../screens/Home";
+import JoinFlat from "../screens/FlatJoin";
 import { NavigationTheme } from "../types/theme";
 
 type HomeStackParamList = {
