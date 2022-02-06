@@ -13,18 +13,18 @@ import HomeStack from "./HomeStack";
 import TasksStack from "./TasksStack";
 
 export type MainTabParamList = {
-  HomeTab: undefined;
-  TasksTab: undefined;
+  HomeRoot: undefined;
+  TasksRoot: undefined;
 };
 
 export type MainTabHomeTabProps = BottomTabScreenProps<
   MainTabParamList,
-  "HomeTab"
+  "HomeRoot"
 >;
 
 export type MainTabTasksTabProps = BottomTabScreenProps<
   MainTabParamList,
-  "TasksTab"
+  "TasksRoot"
 >;
 
 const MainTab = createBottomTabNavigator<MainTabParamList>();
@@ -49,10 +49,10 @@ const MainNavigator = () => {
         tabBarIcon: ({ color, focused, size }) => {
           let iconName;
           switch (route.name) {
-            case "HomeTab":
+            case "HomeRoot":
               iconName = "home";
               break;
-            case "TasksTab":
+            case "TasksRoot":
               iconName = "tasks";
               break;
           }
@@ -62,7 +62,7 @@ const MainNavigator = () => {
       })}
     >
       <MainTab.Screen
-        name="HomeTab"
+        name="HomeRoot"
         component={HomeStack}
         options={{
           tabBarLabel: homeTabLabelText,
@@ -70,7 +70,7 @@ const MainNavigator = () => {
         }}
       />
       <MainTab.Screen
-        name="TasksTab"
+        name="TasksRoot"
         component={TasksStack}
         options={{
           tabBarLabel: tasksTabLabelText,

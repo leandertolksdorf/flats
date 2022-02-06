@@ -14,7 +14,7 @@ import {
   tasksScreenTitleText,
 } from "../constants/strings";
 import CreateOrEditTask from "../screens/TaskEdit";
-import Tasks from "../screens/TasksRoot";
+import Tasks from "../screens/Tasks";
 import { NavigationTheme } from "../types/theme";
 
 type TasksStackParamList = {

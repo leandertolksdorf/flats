@@ -1,4 +1,4 @@
-import { useTheme } from "@react-navigation/native";
+import { CompositeScreenProps, useTheme } from "@react-navigation/native";
 import {
   createStackNavigator,
   StackScreenProps,
@@ -12,40 +12,26 @@ import {
   homeScreenTitleText,
   joinFlatScreenTitleText,
 } from "../constants/strings";
-import CreateFlat from "../screens/FlatCreate";
-import EditFlat from "../screens/FlatEdit";
-import EditProfile from "../screens/ProfileEdit";
+import FlatCreate from "../screens/FlatCreate";
+import FlatEdit from "../screens/FlatEdit";
+import ProfileEdit from "../screens/ProfileEdit";
 import MainHome from "../screens/Home";
-import JoinFlat from "../screens/FlatJoin";
+import FlatJoin from "../screens/FlatJoin";
 import { NavigationTheme } from "../types/theme";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import { MainTabParamList } from "./RootTabs";
 
 type HomeStackParamList = {
   Home: undefined;
-  CreateFlat: undefined;
-  JoinFlat: undefined;
-  EditFlat: undefined;
-  EditProfile: undefined;
+  FlatCreate: undefined;
+  FlatJoin: undefined;
+  FlatEdit: undefined;
+  ProfileEdit: undefined;
 };
 
-export type HomeStackHomeScreenProps = StackScreenProps<
-  HomeStackParamList,
-  "Home"
->;
-export type HomeStackCreateFlatScreenProps = StackScreenProps<
-  HomeStackParamList,
-  "CreateFlat"
->;
-export type HomeStackJoinFlatScreenProps = StackScreenProps<
-  HomeStackParamList,
-  "JoinFlat"
->;
-export type HomeStackEditFlatScreenProps = StackScreenProps<
-  HomeStackParamList,
-  "EditFlat"
->;
-export type HomeStackEditProfileScreenProps = StackScreenProps<
-  HomeStackParamList,
-  "EditProfile"
+export type HomeStackNavigationProps = CompositeScreenProps<
+  BottomTabScreenProps<MainTabParamList, "HomeRoot">,
+  StackScreenProps<HomeStackParamList>
 >;
 
 const Stack = createStackNavigator<HomeStackParamList>();
@@ -61,23 +47,23 @@ const HomeStack = () => {
         options={{ title: homeScreenTitleText }}
       />
       <Stack.Screen
-        name="CreateFlat"
-        component={CreateFlat}
+        name="FlatCreate"
+        component={FlatCreate}
         options={{ title: createFlatScreenTitleText }}
       />
       <Stack.Screen
-        name="JoinFlat"
-        component={JoinFlat}
+        name="FlatJoin"
+        component={FlatJoin}
         options={{ title: joinFlatScreenTitleText }}
       />
       <Stack.Screen
-        name="EditFlat"
-        component={EditFlat}
+        name="FlatEdit"
+        component={FlatEdit}
         options={{ title: editFlatScreenTitleText }}
       />
       <Stack.Screen
-        name="EditProfile"
-        component={EditProfile}
+        name="ProfileEdit"
+        component={ProfileEdit}
         options={{ title: editProfileScreenTitleText }}
       />
     </Stack.Navigator>

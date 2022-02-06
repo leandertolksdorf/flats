@@ -20,13 +20,13 @@ import {
   saveText,
   yesText,
 } from "../constants/strings";
-import { HomeStackEditFlatScreenProps } from "../navigation/HomeStack";
+import { HomeStackNavigationProps } from "../navigation/HomeStack";
 import useStore from "../store";
 import { definitions } from "../types/supabase";
 
 type FormData = Partial<definitions["flats"]>;
 
-const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
+const FlatEdit = ({ navigation }: HomeStackNavigationProps) => {
   const tailwind = useTailwind();
   const [flat, updateFlat, updateProfile, showSnackbar] = useStore((state) => [
     state.flat,
@@ -130,4 +130,4 @@ const EditFlat = ({ navigation }: HomeStackEditFlatScreenProps) => {
   );
 };
 
-export default EditFlat;
+export default FlatEdit;

@@ -13,13 +13,13 @@ import {
   saveSuccessText,
   saveText,
 } from "../constants/strings";
-import { HomeStackEditFlatScreenProps } from "../navigation/HomeStack";
+import { HomeStackNavigationProps } from "../navigation/HomeStack";
 import useStore from "../store";
 import { definitions } from "../types/supabase";
 
 type FormData = Partial<definitions["profiles"]>;
 
-const EditProfile = ({ navigation }: HomeStackEditFlatScreenProps) => {
+const ProfileEdit = ({ navigation }: HomeStackNavigationProps) => {
   const tailwind = useTailwind();
   const [profile, updateProfile, showSnackbar] = useStore((state) => [
     state.profile,
@@ -77,4 +77,4 @@ const EditProfile = ({ navigation }: HomeStackEditFlatScreenProps) => {
   );
 };
 
-export default EditProfile;
+export default ProfileEdit;

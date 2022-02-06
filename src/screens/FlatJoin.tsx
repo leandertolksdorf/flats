@@ -14,14 +14,14 @@ import {
   joinShortcodeRequiredErrorText,
   joinShortcodeValidatorErrorText,
 } from "../constants/strings";
-import { HomeStackJoinFlatScreenProps } from "../navigation/HomeStack";
+import { HomeStackNavigationProps } from "../navigation/HomeStack";
 import useStore from "../store";
 
 type FormData = {
   shortcode: string;
 };
 
-const JoinFlat = ({ navigation }: HomeStackJoinFlatScreenProps) => {
+const FlatJoin = ({ navigation }: HomeStackNavigationProps) => {
   const tailwind = useTailwind();
   const [joinFlat, showSnackbar] = useStore((state: any) => [
     state.joinFlat,
@@ -87,4 +87,4 @@ const JoinFlat = ({ navigation }: HomeStackJoinFlatScreenProps) => {
   );
 };
 
-export default JoinFlat;
+export default FlatJoin;
