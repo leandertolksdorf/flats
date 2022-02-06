@@ -5,8 +5,8 @@ import {
 } from "@react-navigation/bottom-tabs";
 import { homeTabLabelText, tasksTabLabelText } from "../constants/strings";
 
-import HomeStack from "./Home";
-import TasksStack from "./Tasks";
+import HomeStack from "./HomeStack";
+import TasksStack from "./TasksStack";
 import React from "react";
 import tailwindConfig from "../../tailwind.config";
 import { useTailwind } from "tailwind-rn/dist";

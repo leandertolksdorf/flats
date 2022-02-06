@@ -16,7 +16,7 @@ import {
   passwordText,
   signInText,
 } from "../../constants/strings";
-import { SetupStackSignInScreenProps } from "../../navigation/Setup";
+import { SetupStackSignInScreenProps } from "../../navigation/StartStack";
 import useStore from "../../store";
 
 type FormData = {

@@ -12,7 +12,7 @@ import {
 import { useTailwind } from "tailwind-rn";
 import Text from "./Text";
 import { intervalText } from "../constants/strings";
-import { TasksTabCreateOrEditTaskScreenNavigationProp } from "../navigation/Tasks";
+import { TasksTabCreateOrEditTaskScreenNavigationProp } from "../navigation/TasksStack";
 import { definitions } from "../types/supabase";
 
 const Task = (props: {

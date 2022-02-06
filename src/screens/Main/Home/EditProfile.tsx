@@ -13,7 +13,7 @@ import {
   saveSuccessText,
   saveText,
 } from "../../../constants/strings";
-import { HomeStackEditFlatScreenProps } from "../../../navigation/Home";
+import { HomeStackEditFlatScreenProps } from "../../../navigation/HomeStack";
 import useStore from "../../../store";
 import { definitions } from "../../../types/supabase";
 

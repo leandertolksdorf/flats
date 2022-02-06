@@ -11,7 +11,7 @@ import {
   joinFlatText,
   noFlatText,
 } from "../../../constants/strings";
-import { HomeStackHomeScreenProps } from "../../../navigation/Home";
+import { HomeStackHomeScreenProps } from "../../../navigation/HomeStack";
 import useStore from "../../../store";
 
 const Home = ({ navigation }: HomeStackHomeScreenProps) => {

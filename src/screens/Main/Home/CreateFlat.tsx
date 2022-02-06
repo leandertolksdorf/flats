@@ -8,7 +8,7 @@ import {
   createFlatText,
   flatNameText,
 } from "../../../constants/strings";
-import { HomeStackCreateFlatScreenProps } from "../../../navigation/Home";
+import { HomeStackCreateFlatScreenProps } from "../../../navigation/HomeStack";
 import useStore from "../../../store";
 
 const CreateFlat = ({ navigation }: HomeStackCreateFlatScreenProps) => {

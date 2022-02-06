@@ -14,7 +14,7 @@ import {
   joinShortcodeRequiredErrorText,
   joinShortcodeValidatorErrorText,
 } from "../../../constants/strings";
-import { HomeStackJoinFlatScreenProps } from "../../../navigation/Home";
+import { HomeStackJoinFlatScreenProps } from "../../../navigation/HomeStack";
 import useStore from "../../../store";
 
 type FormData = {
