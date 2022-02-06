@@ -1,19 +1,17 @@
+import { FontAwesome5 } from "@expo/vector-icons";
 import {
   BottomTabBar,
   BottomTabScreenProps,
   createBottomTabNavigator,
 } from "@react-navigation/bottom-tabs";
+import classNames from "classnames";
+import { BlurView } from "expo-blur";
+import React from "react";
+import { useTailwind } from "tailwind-rn/dist";
 import { homeTabLabelText, tasksTabLabelText } from "../constants/strings";
-
 import HomeStack from "./HomeStack";
 import TasksStack from "./TasksStack";
-import React from "react";
-import tailwindConfig from "../../tailwind.config";
-import { useTailwind } from "tailwind-rn/dist";
-import classNames from "classnames";
 
-import { FontAwesome5 } from "@expo/vector-icons";
-import { BlurView } from "expo-blur";
 export type MainTabParamList = {
   HomeTab: undefined;
   TasksTab: undefined;

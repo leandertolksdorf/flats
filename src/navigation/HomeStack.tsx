@@ -1,7 +1,10 @@
+import { useTheme } from "@react-navigation/native";
 import {
   createStackNavigator,
   StackScreenProps,
 } from "@react-navigation/stack";
+import React from "react";
+import { useTailwind } from "tailwind-rn/dist";
 import {
   createFlatScreenTitleText,
   editFlatScreenTitleText,
@@ -9,19 +12,11 @@ import {
   homeScreenTitleText,
   joinFlatScreenTitleText,
 } from "../constants/strings";
-
-import React from "react";
 import CreateFlat from "../screens/Main/Home/CreateFlat";
 import EditFlat from "../screens/Main/Home/EditFlat";
 import EditProfile from "../screens/Main/Home/EditProfile";
 import MainHome from "../screens/Main/Home/Home";
 import JoinFlat from "../screens/Main/Home/JoinFlat";
-import tailwindConfig from "../../tailwind.config";
-import { useTailwind } from "tailwind-rn/dist";
-import Text from "../components/Text";
-import classNames from "classnames";
-import { View } from "react-native";
-import { useTheme } from "@react-navigation/native";
 import { NavigationTheme } from "../types/theme";
 
 type HomeStackParamList = {

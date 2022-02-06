@@ -1,17 +1,17 @@
+import { useTheme } from "@react-navigation/native";
 import {
   createStackNavigator,
   StackScreenProps,
 } from "@react-navigation/stack";
+import React from "react";
 import {
   signInScreenTitleText,
   signUpScreenTitleText,
   welcomeScreenTitleText,
 } from "../constants/strings";
-import React from "react";
-import SetupAuth from "../screens/Setup/SetupStart";
 import SetupSignIn from "../screens/Setup/SetupSignIn";
 import SetupSignUp from "../screens/Setup/SetupSignUp";
-import { useTheme } from "@react-navigation/native";
+import SetupAuth from "../screens/Setup/SetupStart";
 import { NavigationTheme } from "../types/theme";
 
 type SetupStackParamList = {

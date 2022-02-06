@@ -1,22 +1,22 @@
 import { FontAwesome5 } from "@expo/vector-icons";
+import { useTheme } from "@react-navigation/native";
 import {
   createStackNavigator,
   StackNavigationProp,
   StackScreenProps,
 } from "@react-navigation/stack";
+import * as React from "react";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { useTailwind } from "tailwind-rn";
 import {
   createTaskScreenTitleText,
   editTaskScreenTitleText,
   tasksScreenTitleText,
 } from "../constants/strings";
-import { useTailwind } from "tailwind-rn";
-
-import * as React from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import CreateOrEditTask from "../screens/Main/Tasks/CreateOrEditTask";
 import Tasks from "../screens/Main/Tasks/Tasks";
-import { CompositeNavigationProp, useTheme } from "@react-navigation/native";
 import { NavigationTheme } from "../types/theme";
+
 type TasksStackParamList = {
   Tasks: undefined;
   CreateOrEditTask: {
