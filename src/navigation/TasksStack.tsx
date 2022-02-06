@@ -6,9 +6,12 @@ import {
   StackNavigationProp,
   StackScreenProps,
 } from "@react-navigation/stack";
+import classNames from "classnames";
 import * as React from "react";
+import { View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useTailwind } from "tailwind-rn";
+import Text from "../components/Text";
 import {
   createTaskScreenTitleText,
   editTaskScreenTitleText,
@@ -44,18 +47,49 @@ const TasksStack = () => {
         component={Tasks}
         options={({ navigation }) => ({
           title: tasksScreenTitleText,
-          headerRight: ({ tintColor }) => (
+          headerRight: () => (
             <TouchableOpacity
-              style={tailwind("px-4")}
               onPress={() => navigation.navigate("CreateOrEditTask")}
+              style={tailwind(
+                classNames(
+                  "bg-indigo-800",
+                  "px-2",
+                  "h-8",
+                  "rounded-full",
+                  "flex",
+                  "flex-row",
+                  "justify-center",
+                  "items-center",
+                  "mr-4"
+                )
+              )}
             >
+              <Text
+                style={tailwind(
+                  classNames("text-lg", "font-bold", "text-indigo-100")
+                )}
+              >
+                NEU{" "}
+              </Text>
               <FontAwesome5
                 name="plus"
-                style={tailwind("text-xl")}
-                color={tintColor}
+                size={tailwind("text-lg").fontSize}
+                color={tailwind("text-indigo-100").color}
               />
             </TouchableOpacity>
           ),
+          // headerRight: ({ tintColor }) => (
+          //   <TouchableOpacity
+          //     style={tailwind("px-4")}
+          //     onPress={() => navigation.navigate("CreateOrEditTask")}
+          //   >
+          //     <FontAwesome5
+          //       name="plus"
+          //       style={tailwind("text-xl")}
+          //       color={tintColor}
+          //     />
+          //   </TouchableOpacity>
+          // ),
         })}
       />
       <Stack.Screen

@@ -80,7 +80,7 @@ function FlatsNavigationContainer(props: any) {
       <View
         style={tailwind(
           classNames(
-            "bg-indigo-100",
+            "bg-indigo-900",
             "w-8",
             "h-8",
             "rounded-full",
@@ -94,7 +94,7 @@ function FlatsNavigationContainer(props: any) {
         <FontAwesome5
           name="arrow-left"
           size={tailwind("text-lg").fontSize}
-          color={tailwind("text-indigo-900").color}
+          color={tailwind("text-indigo-100").color}
         />
       </View>
     ),
