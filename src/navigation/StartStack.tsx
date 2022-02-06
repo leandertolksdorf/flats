@@ -14,26 +14,15 @@ import SetupSignUp from "../screens/SignUp";
 import SetupAuth from "../screens/Start";
 import { NavigationTheme } from "../types/theme";
 
-type SetupStackParamList = {
+type StartStackParamList = {
   Start: undefined;
   SignIn: undefined;
   SignUp: undefined;
 };
 
-export type SetupStackStartScreenProps = StackScreenProps<
-  SetupStackParamList,
-  "Start"
->;
-export type SetupStackSignInScreenProps = StackScreenProps<
-  SetupStackParamList,
-  "SignIn"
->;
-export type SetupStackSignUpScreenProps = StackScreenProps<
-  SetupStackParamList,
-  "SignUp"
->;
+export type StartStackScreenProps = StackScreenProps<StartStackParamList>;
 
-const Stack = createStackNavigator<SetupStackParamList>();
+const Stack = createStackNavigator<StartStackParamList>();
 
 const SetupStack = () => {
   const { stackNavigatorScreenOptions } = useTheme() as NavigationTheme;

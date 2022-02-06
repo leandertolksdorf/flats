@@ -21,7 +21,7 @@ import {
   passwordText,
   signUpText,
 } from "../constants/strings";
-import { SetupStackSignUpScreenProps } from "../navigation/StartStack";
+import { StartStackScreenProps } from "../navigation/StartStack";
 import useStore from "../store";
 
 type FormData = {
@@ -30,7 +30,7 @@ type FormData = {
   password_confirmation: string;
   first_name: string;
 };
-const SetupSignUp = ({ navigation }: SetupStackSignUpScreenProps) => {
+const SetupSignUp = ({ navigation }: StartStackScreenProps) => {
   const tailwind = useTailwind();
   const [signUp, showSnackbar] = useStore((state) => [
     state.signUp,

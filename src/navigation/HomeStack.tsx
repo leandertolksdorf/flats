@@ -19,7 +19,7 @@ import MainHome from "../screens/Home";
 import FlatJoin from "../screens/FlatJoin";
 import { NavigationTheme } from "../types/theme";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import { MainTabParamList } from "./RootTabs";
+import { RootTabParamList } from "./RootTabs";
 
 type HomeStackParamList = {
   Home: undefined;
@@ -30,7 +30,7 @@ type HomeStackParamList = {
 };
 
 export type HomeStackNavigationProps = CompositeScreenProps<
-  BottomTabScreenProps<MainTabParamList, "HomeRoot">,
+  BottomTabScreenProps<RootTabParamList, "HomeRoot">,
   StackScreenProps<HomeStackParamList>
 >;
 

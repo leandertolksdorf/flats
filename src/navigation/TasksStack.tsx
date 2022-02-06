@@ -1,5 +1,6 @@
 import { FontAwesome5 } from "@expo/vector-icons";
-import { useTheme } from "@react-navigation/native";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import { CompositeScreenProps, useTheme } from "@react-navigation/native";
 import {
   createStackNavigator,
   StackNavigationProp,
@@ -16,6 +17,7 @@ import {
 import CreateOrEditTask from "../screens/TaskEdit";
 import Tasks from "../screens/Tasks";
 import { NavigationTheme } from "../types/theme";
+import { RootTabParamList } from "./RootTabs";
 
 type TasksStackParamList = {
   Tasks: undefined;
@@ -24,19 +26,9 @@ type TasksStackParamList = {
   };
 };
 
-export type TasksTabTasksScreenProps = StackScreenProps<
-  TasksStackParamList,
-  "Tasks"
->;
-
-export type TasksTabCreateOrEditTaskScreenNavigationProp = StackNavigationProp<
-  TasksStackParamList,
-  "CreateOrEditTask"
->;
-
-export type TasksTabCreateOrEditTaskScreenProps = StackScreenProps<
-  TasksStackParamList,
-  "CreateOrEditTask"
+export type TasksStackNavigationProps = CompositeScreenProps<
+  BottomTabScreenProps<RootTabParamList, "HomeRoot">,
+  StackScreenProps<TasksStackParamList>
 >;
 
 const Stack = createStackNavigator<TasksStackParamList>();

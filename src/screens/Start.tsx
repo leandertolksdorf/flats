@@ -10,9 +10,9 @@ import {
   welcomeHeadingText,
   welcomeSubheadingText,
 } from "../constants/strings";
-import { SetupStackStartScreenProps } from "../navigation/StartStack";
+import { StartStackScreenProps } from "../navigation/StartStack";
 
-const SetupAuth = ({ navigation }: SetupStackStartScreenProps) => {
+const SetupAuth = ({ navigation }: StartStackScreenProps) => {
   const tailwind = useTailwind();
   return (
     <Screen>

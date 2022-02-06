@@ -12,22 +12,22 @@ import { homeTabLabelText, tasksTabLabelText } from "../constants/strings";
 import HomeStack from "./HomeStack";
 import TasksStack from "./TasksStack";
 
-export type MainTabParamList = {
+export type RootTabParamList = {
   HomeRoot: undefined;
   TasksRoot: undefined;
 };
 
-export type MainTabHomeTabProps = BottomTabScreenProps<
-  MainTabParamList,
+export type HomeRootTabProps = BottomTabScreenProps<
+  RootTabParamList,
   "HomeRoot"
 >;
 
-export type MainTabTasksTabProps = BottomTabScreenProps<
-  MainTabParamList,
+export type FlatRootTabProps = BottomTabScreenProps<
+  RootTabParamList,
   "TasksRoot"
 >;
 
-const MainTab = createBottomTabNavigator<MainTabParamList>();
+const MainTab = createBottomTabNavigator<RootTabParamList>();
 
 const MainNavigator = () => {
   const tailwind = useTailwind();
