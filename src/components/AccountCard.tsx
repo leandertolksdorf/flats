@@ -1,10 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { useTailwind } from "tailwind-rn";
-import Button from "./Button";
-import Card from "./Card";
-import CardList from "./CardList";
-import Text from "./Text";
 import {
   accountCardHeadingText,
   emailText,
@@ -12,6 +8,10 @@ import {
   signOutText,
 } from "../constants/strings";
 import useStore from "../store";
+import Button from "./Button";
+import Card from "./Card";
+import CardList from "./CardList";
+import Text from "./Text";
 
 const AccountCard = () => {
   const tailwind = useTailwind();

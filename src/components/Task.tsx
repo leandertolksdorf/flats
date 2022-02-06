@@ -2,18 +2,13 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import classNames from "classnames";
 import { differenceInDays, parseISO, startOfToday } from "date-fns";
-import React, { useRef, useState } from "react";
-import {
-  Animated,
-  GestureResponderEvent,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import React from "react";
+import { GestureResponderEvent, TouchableOpacity, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import Text from "./Text";
 import { intervalText } from "../constants/strings";
 import { TasksTabCreateOrEditTaskScreenNavigationProp } from "../navigation/TasksStack";
 import { definitions } from "../types/supabase";
+import Text from "./Text";
 
 const Task = (props: {
   task: definitions["tasks"];
