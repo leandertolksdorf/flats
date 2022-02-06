@@ -1,31 +1,37 @@
 import { FontAwesome5 } from "@expo/vector-icons";
 import {
   createStackNavigator,
+  StackNavigationProp,
   StackScreenProps,
 } from "@react-navigation/stack";
 import {
   createTaskScreenTitleText,
   editTaskScreenTitleText,
   tasksScreenTitleText,
-} from "../../constants/strings";
+} from "../constants/strings";
 import { useTailwind } from "tailwind-rn";
 
 import * as React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import CreateOrEditTask from "../../screens/Main/Tasks/CreateOrEditTask";
-import Tasks from "../../screens/Main/Tasks/Tasks";
-import { useTheme } from "@react-navigation/native";
-import { NavigationTheme } from "../../types/navigationTheme";
+import CreateOrEditTask from "../screens/Main/Tasks/CreateOrEditTask";
+import Tasks from "../screens/Main/Tasks/Tasks";
+import { CompositeNavigationProp, useTheme } from "@react-navigation/native";
+import { NavigationTheme } from "../types/theme";
 type TasksStackParamList = {
   Tasks: undefined;
   CreateOrEditTask: {
-    taskId: string | undefined;
+    taskId: number | undefined;
   };
 };
 
 export type TasksTabTasksScreenProps = StackScreenProps<
   TasksStackParamList,
   "Tasks"
+>;
+
+export type TasksTabCreateOrEditTaskScreenNavigationProp = StackNavigationProp<
+  TasksStackParamList,
+  "CreateOrEditTask"
 >;
 
 export type TasksTabCreateOrEditTaskScreenProps = StackScreenProps<

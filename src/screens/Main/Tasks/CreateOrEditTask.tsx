@@ -1,4 +1,5 @@
 import { Picker } from "@react-native-picker/picker";
+import { useRoute } from "@react-navigation/native";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
@@ -18,10 +19,12 @@ import useStore from "../../../store";
 type FormData = {
   name: string;
   frequency: number;
-  interval: "daily" | "weekly" | "monthly";
+  interval: "day" | "week" | "month";
 };
 
 const CreateOrEditTask = () => {
+  const route = useRoute();
+
   const tailwind = useTailwind();
   const [createTask, showSnackbar] = useStore((state) => [
     state.createTask,
@@ -36,7 +39,7 @@ const CreateOrEditTask = () => {
     defaultValues: {
       name: "",
       frequency: 1,
-      interval: "weekly",
+      interval: "week",
     },
   });
 
@@ -103,9 +106,9 @@ const CreateOrEditTask = () => {
                 onValueChange={(itemValue, itemIndex) => onChange(itemValue)}
                 style={tailwind("flex-1")}
               >
-                <Picker.Item value={"daily"} label={"Tag/e"} />
-                <Picker.Item value={"weekly"} label={"Woche/n"} />
-                <Picker.Item value={"monthly"} label={"Monat/e"} />
+                <Picker.Item value={"dai"} label={"Tag/e"} />
+                <Picker.Item value={"week"} label={"Woche/n"} />
+                <Picker.Item value={"month"} label={"Monat/e"} />
               </Picker>
             )}
           />

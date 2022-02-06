@@ -2,7 +2,7 @@ import Constants from "expo-constants";
 import * as React from "react";
 import SnackBar from "react-native-snackbar-component";
 import { useTailwind } from "tailwind-rn";
-import useStore from "../../store";
+import useStore from "../store";
 
 const Snackbar = () => {
   const tailwind = useTailwind();

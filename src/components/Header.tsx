@@ -3,13 +3,13 @@ import { useRoute } from "@react-navigation/native";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import Text from "../../components/Text";
+import Text from "./Text";
 import {
   daytimeGreetingText,
   greetingHeadingWithNameText,
-} from "../../constants/strings";
-import useStore from "../../store";
-import { definitions } from "../../types/supabase";
+} from "../constants/strings";
+import useStore from "../store";
+import { definitions } from "../types/supabase";
 
 const Header = () => {
   const tailwind = useTailwind();

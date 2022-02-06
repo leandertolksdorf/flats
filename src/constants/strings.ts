@@ -79,17 +79,18 @@ export const flatCodeShareText = (code: string | null) =>
   `Tritt meiner WG auf Flats bei mit dem Code: ${code} (5 Tage gültig)`;
 export const leaveFlatConfirmationText = (flatName?: string) =>
   `Willst du deine WG ${flatName + " "}wirklich verlassen?`;
+
 export const intervalText = (
   frequency: number,
-  interval: "daily" | "weekly" | "monthly"
+  interval: "day" | "week" | "month"
 ) => {
   const intervalStrings = {
-    daily: "Tag",
-    weekly: "Woche",
-    monthly: "Monat",
+    day: "Tag",
+    week: "Woche",
+    month: "Monat",
   };
   let output = "Jede";
-  if (frequency === 1 && (interval === "daily" || interval === "monthly")) {
+  if (frequency === 1 && (interval === "day" || interval === "month")) {
     output += "n";
   }
   if (frequency > 1) {

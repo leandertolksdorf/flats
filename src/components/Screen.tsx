@@ -1,6 +1,7 @@
 import { useHeaderHeight } from "@react-navigation/elements";
 import React from "react";
 import { KeyboardAvoidingView, ScrollView, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useTailwind } from "tailwind-rn";
 
 const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
@@ -13,9 +14,7 @@ const Screen = ({ scroll, hero, hiddenHero, children }: any) => {
       behavior={"height"}
     >
       <View style={tailwind("w-full h-full")}>
-        <View style={tailwind("flex-1")}>
-          <ScrollView style={tailwind("flex-1")}>{children}</ScrollView>
-        </View>
+        <ScrollView style={tailwind("flex-1 mb-24")}>{children}</ScrollView>
       </View>
     </KeyboardAvoidingView>
   );

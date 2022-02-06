@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { TextInput, TouchableOpacity, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { useTailwind } from "tailwind-rn";
-import Text from "../../components/Text";
+import Text from "./Text";
 
 const Input = (props: any) => {
   const tailwind = useTailwind();

@@ -2,9 +2,9 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Share } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import Card from "../../components/Card";
-import CardList from "../../components/CardList";
-import Text from "../../components/Text";
+import Card from "./Card";
+import CardList from "./CardList";
+import Text from "./Text";
 import {
   cityText,
   flatCardHeadingText,
@@ -12,8 +12,8 @@ import {
   generateInviteCodeText,
   inviteText,
   nameText,
-} from "../../constants/strings";
-import useStore from "../../store";
+} from "../constants/strings";
+import useStore from "../store";
 
 const FlatCard = () => {
   const tailwind = useTailwind();

@@ -1,17 +1,17 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { useTailwind } from "tailwind-rn";
-import Button from "../../components/Button";
-import Card from "../../components/Card";
-import CardList from "../../components/CardList";
-import Text from "../../components/Text";
+import Button from "./Button";
+import Card from "./Card";
+import CardList from "./CardList";
+import Text from "./Text";
 import {
   accountCardHeadingText,
   emailText,
   nameText,
   signOutText,
-} from "../../constants/strings";
-import useStore from "../../store";
+} from "../constants/strings";
+import useStore from "../store";
 
 const AccountCard = () => {
   const tailwind = useTailwind();

@@ -175,6 +175,7 @@ const useStore = create<State>((set, get) => ({
     const { data, error } = await supabase
       .from<definitions["tasks"]>("tasks")
       .insert(new_task);
+    console.log(data, error);
     get().fetchTasks();
   },
   // Auth

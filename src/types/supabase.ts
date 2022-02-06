@@ -369,9 +369,9 @@ export interface paths {
           id?: parameters["rowFilter.tasks.id"];
           frequency?: parameters["rowFilter.tasks.frequency"];
           date?: parameters["rowFilter.tasks.date"];
-          assigned_to?: parameters["rowFilter.tasks.assigned_to"];
-          interval?: parameters["rowFilter.tasks.interval"];
           name?: parameters["rowFilter.tasks.name"];
+          flat_id?: parameters["rowFilter.tasks.flat_id"];
+          interval?: parameters["rowFilter.tasks.interval"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -425,9 +425,9 @@ export interface paths {
           id?: parameters["rowFilter.tasks.id"];
           frequency?: parameters["rowFilter.tasks.frequency"];
           date?: parameters["rowFilter.tasks.date"];
-          assigned_to?: parameters["rowFilter.tasks.assigned_to"];
-          interval?: parameters["rowFilter.tasks.interval"];
           name?: parameters["rowFilter.tasks.name"];
+          flat_id?: parameters["rowFilter.tasks.flat_id"];
+          interval?: parameters["rowFilter.tasks.interval"];
         };
         header: {
           /** Preference */
@@ -445,9 +445,9 @@ export interface paths {
           id?: parameters["rowFilter.tasks.id"];
           frequency?: parameters["rowFilter.tasks.frequency"];
           date?: parameters["rowFilter.tasks.date"];
-          assigned_to?: parameters["rowFilter.tasks.assigned_to"];
-          interval?: parameters["rowFilter.tasks.interval"];
           name?: parameters["rowFilter.tasks.name"];
+          flat_id?: parameters["rowFilter.tasks.flat_id"];
+          interval?: parameters["rowFilter.tasks.interval"];
         };
         body: {
           /** tasks */
@@ -481,12 +481,13 @@ export interface paths {
       };
     };
   };
-  "/rpc/join_flat": {
+  "/rpc/generate_shortcode": {
     post: {
       parameters: {
         body: {
           args: {
-            code: string;
+            /** Format: integer */
+            size: number;
           };
         };
         header: {
@@ -500,11 +501,14 @@ export interface paths {
       };
     };
   };
-  "/rpc/handle_new_flat": {
+  "/rpc/join_flat": {
     post: {
       parameters: {
         body: {
-          args: { [key: string]: unknown };
+          args: {
+            /** Format: text */
+            code: string;
+          };
         };
         header: {
           /** Preference */
@@ -522,84 +526,8 @@ export interface paths {
       parameters: {
         body: {
           args: {
-            code: string;
-          };
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferParams"];
-        };
-      };
-      responses: {
-        /** OK */
-        200: unknown;
-      };
-    };
-  };
-  "/rpc/generate_shortcode": {
-    post: {
-      parameters: {
-        body: {
-          args: {
-            size: number;
-          };
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferParams"];
-        };
-      };
-      responses: {
-        /** OK */
-        200: unknown;
-      };
-    };
-  };
-  "/rpc/is_member_of_same_flat": {
-    post: {
-      parameters: {
-        body: {
-          args: {
+            /** Format: uuid */
             user_id: string;
-            user_id_2: string;
-          };
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferParams"];
-        };
-      };
-      responses: {
-        /** OK */
-        200: unknown;
-      };
-    };
-  };
-  "/rpc/file_fdw_validator": {
-    post: {
-      parameters: {
-        body: {
-          args: {
-            "": string;
-          };
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferParams"];
-        };
-      };
-      responses: {
-        /** OK */
-        200: unknown;
-      };
-    };
-  };
-  "/rpc/generate_uid": {
-    post: {
-      parameters: {
-        body: {
-          args: {
-            size: number;
           };
         };
         header: {
@@ -630,168 +558,365 @@ export interface paths {
       };
     };
   };
+  "/rpc/file_fdw_validator": {
+    post: {
+      parameters: {
+        body: {
+          args: {
+            /** Format: oid */
+            "": string;
+          };
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferParams"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: unknown;
+      };
+    };
+  };
+  "/rpc/generate_uid": {
+    post: {
+      parameters: {
+        body: {
+          args: {
+            /** Format: integer */
+            size: number;
+          };
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferParams"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: unknown;
+      };
+    };
+  };
+  "/rpc/handle_new_flat": {
+    post: {
+      parameters: {
+        body: {
+          args: { [key: string]: unknown };
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferParams"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: unknown;
+      };
+    };
+  };
+  "/rpc/is_member_of_same_flat": {
+    post: {
+      parameters: {
+        body: {
+          args: {
+            /** Format: uuid */
+            user_id: string;
+            /** Format: uuid */
+            user_id_2: string;
+          };
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferParams"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: unknown;
+      };
+    };
+  };
 }
 
 export interface definitions {
   flats: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /**
+     * Format: timestamp with time zone
+     * @default now()
+     */
     created_at?: string;
+    /** Format: text */
     city?: string;
+    /**
+     * Format: text
+     * @default Meine WG
+     */
     name: string;
   };
   invitations: {
+    /**
+     * Format: date
+     * @default CURRENT_DATE
+     */
     created_at: string;
+    /**
+     * Format: uuid
+     * @default auth.uid()
+     */
     created_by?: string;
+    /**
+     * Format: date
+     * @default (CURRENT_DATE + '5 days'::interval)
+     */
     expires: string;
     /**
-     * Note:
+     * Format: text
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default public.generate_shortcode(6)
      */
     shortcode: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `flats.id`.<fk table='flats' column='id'/>
      */
     flat_id: string;
   };
   pglog: {
+    /** Format: timestamp with time zone */
     log_time?: string;
+    /** Format: text */
     user_name?: string;
+    /** Format: text */
     database_name?: string;
+    /** Format: integer */
     process_id?: number;
+    /** Format: text */
     connection_from?: string;
+    /** Format: text */
     session_id?: string;
+    /** Format: bigint */
     session_line_num?: number;
+    /** Format: text */
     command_tag?: string;
+    /** Format: timestamp with time zone */
     session_start_time?: string;
+    /** Format: text */
     virtual_transaction_id?: string;
+    /** Format: bigint */
     transaction_id?: number;
+    /** Format: text */
     error_severity?: string;
+    /** Format: text */
     sql_state_code?: string;
+    /** Format: text */
     message?: string;
+    /** Format: text */
     detail?: string;
+    /** Format: text */
     hint?: string;
+    /** Format: text */
     internal_query?: string;
+    /** Format: integer */
     internal_query_pos?: number;
+    /** Format: text */
     context?: string;
+    /** Format: text */
     query?: string;
+    /** Format: integer */
     query_pos?: number;
+    /** Format: text */
     location?: string;
+    /** Format: text */
     application_name?: string;
+    /** Format: text */
     backend_type?: string;
   };
   profiles: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
      */
     id: string;
+    /**
+     * Format: timestamp with time zone
+     * @default now()
+     */
     created_at?: string;
+    /** Format: text */
     first_name: string;
+    /**
+     * Format: text
+     * @default random()
+     */
     avatar_seed: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `flats.id`.<fk table='flats' column='id'/>
      */
     flat_id?: string;
   };
   tasks: {
     /**
-     * Note:
+     * Format: bigint
+     * @description Note:
      * This is a Primary Key.<pk/>
      */
     id: number;
+    /** Format: integer */
     frequency: number;
-    date: string;
     /**
-     * Note:
-     * This is a Foreign Key to `profiles.id`.<fk table='profiles' column='id'/>
+     * Format: date
+     * @default now()
      */
-    assigned_to: string;
-    interval: "daily" | "weekly" | "monthly";
+    date: string;
+    /** Format: text */
     name: string;
+    /**
+     * Format: uuid
+     * @description Note:
+     * This is a Foreign Key to `flats.id`.<fk table='flats' column='id'/>
+     * @default public.get_flat_id(auth.uid())
+     */
+    flat_id: string;
+    /** Format: public.time_interval */
+    interval: "day" | "week" | "month";
   };
 }
 
 export interface parameters {
-  /** Preference */
+  /** @description Preference */
   preferParams: "params=single-object";
-  /** Preference */
+  /** @description Preference */
   preferReturn: "return=representation" | "return=minimal" | "return=none";
-  /** Preference */
+  /** @description Preference */
   preferCount: "count=none";
-  /** Filtering Columns */
+  /** @description Filtering Columns */
   select: string;
-  /** On Conflict */
+  /** @description On Conflict */
   on_conflict: string;
-  /** Ordering */
+  /** @description Ordering */
   order: string;
-  /** Limiting and Pagination */
+  /** @description Limiting and Pagination */
   range: string;
-  /** Limiting and Pagination */
+  /**
+   * @description Limiting and Pagination
+   * @default items
+   */
   rangeUnit: string;
-  /** Limiting and Pagination */
+  /** @description Limiting and Pagination */
   offset: string;
-  /** Limiting and Pagination */
+  /** @description Limiting and Pagination */
   limit: string;
-  /** flats */
+  /** @description flats */
   "body.flats": definitions["flats"];
+  /** Format: uuid */
   "rowFilter.flats.id": string;
+  /** Format: timestamp with time zone */
   "rowFilter.flats.created_at": string;
+  /** Format: text */
   "rowFilter.flats.city": string;
+  /** Format: text */
   "rowFilter.flats.name": string;
-  /** invitations */
+  /** @description invitations */
   "body.invitations": definitions["invitations"];
+  /** Format: date */
   "rowFilter.invitations.created_at": string;
+  /** Format: uuid */
   "rowFilter.invitations.created_by": string;
+  /** Format: date */
   "rowFilter.invitations.expires": string;
+  /** Format: text */
   "rowFilter.invitations.shortcode": string;
+  /** Format: uuid */
   "rowFilter.invitations.flat_id": string;
-  /** pglog */
+  /** @description pglog */
   "body.pglog": definitions["pglog"];
+  /** Format: timestamp with time zone */
   "rowFilter.pglog.log_time": string;
+  /** Format: text */
   "rowFilter.pglog.user_name": string;
+  /** Format: text */
   "rowFilter.pglog.database_name": string;
+  /** Format: integer */
   "rowFilter.pglog.process_id": string;
+  /** Format: text */
   "rowFilter.pglog.connection_from": string;
+  /** Format: text */
   "rowFilter.pglog.session_id": string;
+  /** Format: bigint */
   "rowFilter.pglog.session_line_num": string;
+  /** Format: text */
   "rowFilter.pglog.command_tag": string;
+  /** Format: timestamp with time zone */
   "rowFilter.pglog.session_start_time": string;
+  /** Format: text */
   "rowFilter.pglog.virtual_transaction_id": string;
+  /** Format: bigint */
   "rowFilter.pglog.transaction_id": string;
+  /** Format: text */
   "rowFilter.pglog.error_severity": string;
+  /** Format: text */
   "rowFilter.pglog.sql_state_code": string;
+  /** Format: text */
   "rowFilter.pglog.message": string;
+  /** Format: text */
   "rowFilter.pglog.detail": string;
+  /** Format: text */
   "rowFilter.pglog.hint": string;
+  /** Format: text */
   "rowFilter.pglog.internal_query": string;
+  /** Format: integer */
   "rowFilter.pglog.internal_query_pos": string;
+  /** Format: text */
   "rowFilter.pglog.context": string;
+  /** Format: text */
   "rowFilter.pglog.query": string;
+  /** Format: integer */
   "rowFilter.pglog.query_pos": string;
+  /** Format: text */
   "rowFilter.pglog.location": string;
+  /** Format: text */
   "rowFilter.pglog.application_name": string;
+  /** Format: text */
   "rowFilter.pglog.backend_type": string;
-  /** profiles */
+  /** @description profiles */
   "body.profiles": definitions["profiles"];
+  /** Format: uuid */
   "rowFilter.profiles.id": string;
+  /** Format: timestamp with time zone */
   "rowFilter.profiles.created_at": string;
+  /** Format: text */
   "rowFilter.profiles.first_name": string;
+  /** Format: text */
   "rowFilter.profiles.avatar_seed": string;
+  /** Format: uuid */
   "rowFilter.profiles.flat_id": string;
-  /** tasks */
+  /** @description tasks */
   "body.tasks": definitions["tasks"];
+  /** Format: bigint */
   "rowFilter.tasks.id": string;
+  /** Format: integer */
   "rowFilter.tasks.frequency": string;
+  /** Format: date */
   "rowFilter.tasks.date": string;
-  "rowFilter.tasks.assigned_to": string;
-  "rowFilter.tasks.interval": string;
+  /** Format: text */
   "rowFilter.tasks.name": string;
+  /** Format: uuid */
+  "rowFilter.tasks.flat_id": string;
+  /** Format: public.time_interval */
+  "rowFilter.tasks.interval": string;
 }
 
 export interface operations {}

@@ -8,9 +8,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "generate-types": "source .env && npx openapi-typescript $SUPABASE_URL/rest/v1/?apikey=$SUPABASE_KEY --output types/supabase.ts",
+    "generate-types": "source .env && npx openapi-typescript $SUPABASE_URL/rest/v1/?apikey=$SUPABASE_KEY --output ./src/types/supabase.ts",
     "build:tailwind": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
-    "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
+    "dev:tailwind": "concurrently \"tailwindcss --input ./src/tailwind/input.css --output ./src/tailwind/tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --input ./src/tailwind/tailwind.css --output ./src/tailwind/tailwind.json --watch\""
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "~1.15.0",
@@ -22,9 +22,11 @@
     "@supabase/supabase-js": "^1.25.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "classnames": "^2.3.1",
+    "date-fns": "^2.28.0",
     "dotenv": "^10.0.0",
     "expo": "~43.0.0",
     "expo-app-loading": "~1.2.1",
+    "expo-blur": "^11.0.0",
     "expo-font": "~10.0.3",
     "expo-linear-gradient": "~10.0.3",
     "expo-status-bar": "~1.1.0",
@@ -33,7 +35,6 @@
     "react-dom": "17.0.1",
     "react-hook-form": "^7.19.5",
     "react-native": "0.64.3",
-    "react-native-gesture-handler": "~1.10.2",
     "react-native-global-props": "^1.1.5",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
@@ -43,7 +44,8 @@
     "react-native-web": "0.17.1",
     "tailwind-rn": "^4.0.0",
     "validator": "^13.7.0",
-    "zustand": "^3.6.3"
+    "zustand": "^3.6.3",
+    "react-native-gesture-handler": "~1.10.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

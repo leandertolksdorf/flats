@@ -6,14 +6,13 @@ import {
   signInScreenTitleText,
   signUpScreenTitleText,
   welcomeScreenTitleText,
-} from "../../constants/strings";
-
+} from "../constants/strings";
 import React from "react";
-import SetupAuth from "../../screens/Setup/SetupStart";
-import SetupSignIn from "../../screens/Setup/SetupSignIn";
-import SetupSignUp from "../../screens/Setup/SetupSignUp";
+import SetupAuth from "../screens/Setup/SetupStart";
+import SetupSignIn from "../screens/Setup/SetupSignIn";
+import SetupSignUp from "../screens/Setup/SetupSignUp";
 import { useTheme } from "@react-navigation/native";
-import { NavigationTheme } from "../../types/navigationTheme";
+import { NavigationTheme } from "../types/theme";
 
 type SetupStackParamList = {
   Start: undefined;
@@ -38,7 +37,6 @@ const Stack = createStackNavigator<SetupStackParamList>();
 
 const SetupStack = () => {
   const { stackNavigatorScreenOptions } = useTheme() as NavigationTheme;
-
   return (
     <Stack.Navigator screenOptions={stackNavigatorScreenOptions}>
       <Stack.Screen

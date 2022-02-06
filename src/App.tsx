@@ -1,24 +1,23 @@
+import { FontAwesome5 } from "@expo/vector-icons";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
-import Snackbar from "./components/Snackbar";
+import { StackNavigationOptions } from "@react-navigation/stack";
+import classNames from "classnames";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
-import supabase from "./lib/supabase";
-import React, { ReactNode, useEffect } from "react";
-import Expo from "expo";
+import React, { useEffect } from "react";
+import { View } from "react-native";
 import "react-native-gesture-handler";
 import { setCustomText } from "react-native-global-props";
 import "react-native-url-polyfill/auto";
 import { TailwindProvider, useTailwind } from "tailwind-rn/dist";
+import Snackbar from "./components/Snackbar";
+import Text from "./components/Text";
+import supabase from "./lib/supabase";
 import MainNavigator from "./navigation/Main";
 import SetupStack from "./navigation/Setup";
 import useStore from "./store";
-import utilities from "../tailwind.json";
-import { View } from "react-native";
-import classNames from "classnames";
-import Text from "./components/Text";
-import { StackNavigationOptions } from "@react-navigation/stack";
-import { NavigationTheme } from "./types/navigationTheme";
-import { FontAwesome5 } from "@expo/vector-icons";
+import utilities from "./tailwind/tailwind.json";
+import { NavigationTheme } from "./types/theme";
 
 const UserContainer = () => {
   const [setSession, fetchAll] = useStore((state: any) => [
@@ -44,7 +43,6 @@ const UserContainer = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return user ? <MainNavigator /> : <SetupStack />;
 };
 

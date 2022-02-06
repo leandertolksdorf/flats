@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React, { ReactNode } from "react";
 import { TouchableOpacity, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import Text from "../../components/Text";
+import Text from "./Text";
 
 const CardList = ({
   title,
