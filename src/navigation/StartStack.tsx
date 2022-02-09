@@ -1,8 +1,5 @@
 import { useTheme } from "@react-navigation/native";
-import {
-  createStackNavigator,
-  StackScreenProps,
-} from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import {
   signInScreenTitleText,
@@ -12,15 +9,8 @@ import {
 import SetupSignIn from "../screens/SignIn";
 import SetupSignUp from "../screens/SignUp";
 import SetupAuth from "../screens/Start";
+import { StartStackParamList } from "../types/navigation";
 import { NavigationTheme } from "../types/theme";
-
-type StartStackParamList = {
-  Start: undefined;
-  SignIn: undefined;
-  SignUp: undefined;
-};
-
-export type StartStackScreenProps = StackScreenProps<StartStackParamList>;
 
 const Stack = createStackNavigator<StartStackParamList>();
 

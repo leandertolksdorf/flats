@@ -1,14 +1,8 @@
 import { FontAwesome5 } from "@expo/vector-icons";
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import { CompositeScreenProps, useTheme } from "@react-navigation/native";
-import {
-  createStackNavigator,
-  StackNavigationProp,
-  StackScreenProps,
-} from "@react-navigation/stack";
+import { useTheme } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import classNames from "classnames";
 import * as React from "react";
-import { View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useTailwind } from "tailwind-rn";
 import Text from "../components/Text";
@@ -19,20 +13,11 @@ import {
 } from "../constants/strings";
 import CreateOrEditTask from "../screens/TaskEdit";
 import Tasks from "../screens/Tasks";
+import {
+  TasksStackParamList,
+  TasksStackScreenProps,
+} from "../types/navigation";
 import { NavigationTheme } from "../types/theme";
-import { RootTabParamList } from "./RootTabs";
-
-type TasksStackParamList = {
-  Tasks: undefined;
-  CreateOrEditTask: {
-    taskId: number | undefined;
-  };
-};
-
-export type TasksStackNavigationProps = CompositeScreenProps<
-  BottomTabScreenProps<RootTabParamList, "HomeRoot">,
-  StackScreenProps<TasksStackParamList>
->;
 
 const Stack = createStackNavigator<TasksStackParamList>();
 
@@ -45,7 +30,7 @@ const TasksStack = () => {
       <Stack.Screen
         name="Tasks"
         component={Tasks}
-        options={({ navigation }) => ({
+        options={({ navigation }: TasksStackScreenProps<"Tasks">) => ({
           title: tasksScreenTitleText,
           headerRight: () => (
             <TouchableOpacity
@@ -53,7 +38,7 @@ const TasksStack = () => {
               style={tailwind(
                 classNames(
                   "bg-indigo-800",
-                  "px-2",
+                  "px-3",
                   "h-8",
                   "rounded-full",
                   "flex",
@@ -69,7 +54,7 @@ const TasksStack = () => {
                   classNames("text-lg", "font-bold", "text-indigo-100")
                 )}
               >
-                NEU{" "}
+                Neu{" "}
               </Text>
               <FontAwesome5
                 name="plus"

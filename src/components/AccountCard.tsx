@@ -7,15 +7,18 @@ import {
   nameText,
   signOutText,
 } from "../constants/strings";
+
 import useStore from "../store";
+import { HomeStackScreenProps } from "../types/navigation";
 import Button from "./Button";
 import Card from "./Card";
 import CardList from "./CardList";
 import Text from "./Text";
 
 const AccountCard = () => {
+  const navigation =
+    useNavigation<HomeStackScreenProps<"Home">["navigation"]>();
   const tailwind = useTailwind();
-  const navigation = useNavigation();
   const [user, signOut, profile] = useStore((state: any) => [
     state.user,
     state.signOut,
@@ -31,7 +34,7 @@ const AccountCard = () => {
       <CardList
         title={accountCardHeadingText}
         actionText="Bearbeiten"
-        onPressAction={() => navigation.navigate("EditProfile")}
+        onPressAction={() => navigation.navigate("ProfileEdit")}
       >
         <Card title={nameText}>
           <Text style={tailwind("text-xl")}>{profile?.first_name}</Text>

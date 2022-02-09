@@ -8,11 +8,10 @@ import Padding from "../components/Padding";
 import Screen from "../components/Screen";
 import Text from "../components/Text";
 import { createFlatText, joinFlatText, noFlatText } from "../constants/strings";
-import { HomeStackNavigationProps } from "../navigation/HomeStack";
 import useStore from "../store";
+import { HomeStackScreenProps } from "../types/navigation";
 
-const Home = ({ navigation }: HomeStackNavigationProps) => {
-  console.log(navigation);
+const Home = ({ navigation }: HomeStackScreenProps<"Home">) => {
   const tailwind = useTailwind();
   const [profile, flat, signOut, updateFlat] = useStore((state: any) => [
     state.profile,
@@ -28,10 +27,10 @@ const Home = ({ navigation }: HomeStackNavigationProps) => {
       ) : (
         <Padding>
           <Text style={tailwind("text-xl pb-3")}>{noFlatText}</Text>
-          <Button onPress={() => navigation.push("FlatJoin")}>
+          <Button onPress={() => navigation.navigate("FlatJoin")}>
             {joinFlatText}
           </Button>
-          <Button onPress={() => navigation.push("FlatCreate")}>
+          <Button onPress={() => navigation.navigate("FlatCreate")}>
             {createFlatText}
           </Button>
         </Padding>

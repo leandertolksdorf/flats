@@ -1,8 +1,5 @@
-import { CompositeScreenProps, useTheme } from "@react-navigation/native";
-import {
-  createStackNavigator,
-  StackScreenProps,
-} from "@react-navigation/stack";
+import { useTheme } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { useTailwind } from "tailwind-rn/dist";
 import {
@@ -14,25 +11,11 @@ import {
 } from "../constants/strings";
 import FlatCreate from "../screens/FlatCreate";
 import FlatEdit from "../screens/FlatEdit";
-import ProfileEdit from "../screens/ProfileEdit";
-import MainHome from "../screens/Home";
 import FlatJoin from "../screens/FlatJoin";
+import MainHome from "../screens/Home";
+import ProfileEdit from "../screens/ProfileEdit";
+import { HomeStackParamList } from "../types/navigation";
 import { NavigationTheme } from "../types/theme";
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import { RootTabParamList } from "./RootTabs";
-
-type HomeStackParamList = {
-  Home: undefined;
-  FlatCreate: undefined;
-  FlatJoin: undefined;
-  FlatEdit: undefined;
-  ProfileEdit: undefined;
-};
-
-export type HomeStackNavigationProps = CompositeScreenProps<
-  BottomTabScreenProps<RootTabParamList, "HomeRoot">,
-  StackScreenProps<HomeStackParamList>
->;
 
 const Stack = createStackNavigator<HomeStackParamList>();
 

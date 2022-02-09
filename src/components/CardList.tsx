@@ -23,12 +23,12 @@ const CardList = ({
         <TouchableOpacity
           onPress={handleActionPress}
           style={tailwind(
-            classNames("bg-indigo-100", "rounded-full", "-mr-2", "px-3")
+            classNames("bg-indigo-800", "rounded-full", "-mr-2", "px-3")
           )}
         >
           <Text
             style={tailwind(
-              classNames("text-lg", "text-indigo-900", "font-bold")
+              classNames("text-lg", "text-indigo-100", "font-bold")
             )}
           >
             {actionText}

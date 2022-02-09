@@ -13,7 +13,7 @@ const Button = (props: any) => {
           "mb-2",
           "rounded-lg",
           "overflow-hidden",
-          !props.text && "bg-indigo-300"
+          !props.text && "bg-indigo-800"
         )
       )}
       {...props}
@@ -23,7 +23,7 @@ const Button = (props: any) => {
           ...tailwind(
             classNames(
               props.sm ? "text-sm" : "text-xl",
-              "text-indigo-900",
+              "text-indigo-100",
               "text-center"
             )
           ),

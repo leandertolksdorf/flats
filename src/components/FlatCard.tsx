@@ -11,13 +11,15 @@ import {
   nameText,
 } from "../constants/strings";
 import useStore from "../store";
+import { HomeStackScreenProps } from "../types/navigation";
 import Card from "./Card";
 import CardList from "./CardList";
 import Text from "./Text";
 
 const FlatCard = () => {
   const tailwind = useTailwind();
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<HomeStackScreenProps<"Home">["navigation"]>();
   // Edit fields
   const [flat, inviteCode, createInvite, flatmates] = useStore((state: any) => [
     state.flat,
@@ -46,7 +48,7 @@ const FlatCard = () => {
     <CardList
       title={flatCardHeadingText}
       actionText="Bearbeiten"
-      onPressAction={() => navigation.navigate("EditFlat")}
+      onPressAction={() => navigation.navigate("FlatEdit")}
     >
       <Card title={nameText}>
         <Text style={tailwind("text-xl")}>{flat?.name}</Text>
